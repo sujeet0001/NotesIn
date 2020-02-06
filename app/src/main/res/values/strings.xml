@@ -2,4 +2,9 @@
     <string name="app_name">My Notes</string>
     <string name="enter_passcode">Enter your passcode</string>
     <string name="dot">⬤</string>
+    <string name="change_passcode">Change your passcode</string>
+    <string name="enter_old_passcode">Enter old passcode</string>
+    <string name="enter_new_passcode">Enter new passcode</string>
+    <string name="reenter_new_passcode">Re-enter new passcode</string>
+    <string name="change_it">Change it!</string>
 </resources>
