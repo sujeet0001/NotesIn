@@ -3,11 +3,12 @@ package com.mynotes.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
 import com.mynotes.stuffs.BaseActivity
 import com.mynotes.stuffs.Prefs
 import kotlinx.android.synthetic.main.passcode.*
+
 
 class PassCode : BaseActivity() {
 

@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.Home">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ho_lay"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/d20"
+        android:paddingTop="@dimen/d10"
+        android:paddingEnd="@dimen/d20"
+        android:paddingBottom="@dimen/d10"
+        android:layout_margin="@dimen/d10"
+        android:background="@drawable/rc_white70"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/bold"
+            android:text="@string/notes"
+            android:textColor="@color/black"
+            android:textSize="@dimen/t25" />
+
+        <ImageButton
+            android:id="@+id/ho_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/d15"
+            android:layout_marginEnd="@dimen/d15"
+            android:padding="@dimen/d12"
+            android:background="@drawable/r_white70_button"
+            app:srcCompat="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/ho_chngpasscode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/trans"
+            app:srcCompat="@drawable/change_password" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ho_list"
+        android:layout_below="@id/ho_lay"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regular"
+        android:gravity="center_horizontal"
+        android:text="@string/no_notes"
+        android:textSize="@dimen/t16"
+        android:visibility="gone"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

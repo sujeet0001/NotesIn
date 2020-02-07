@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.mynotes.R
 import com.mynotes.stuffs.BaseActivity
+import kotlinx.android.synthetic.main.home.*
 
 class Home : BaseActivity() {
 
@@ -11,6 +12,7 @@ class Home : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
 
-        startActivity(Intent(this, ChangePassword::class.java))
+        ho_add.setOnClickListener{}
+        ho_chngpasscode.setOnClickListener{startActivity(Intent(applicationContext, ChangePassword::class.java))}
     }
 }

@@ -7,4 +7,6 @@
     <string name="enter_new_passcode">Enter new passcode</string>
     <string name="reenter_new_passcode">Re-enter new passcode</string>
     <string name="change_it">Change it!</string>
+    <string name="notes">Notes</string>
+    <string name="no_notes">No notes found!\nTap Add(+) icon to add a note</string>
 </resources>

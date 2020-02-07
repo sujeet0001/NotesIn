@@ -1,10 +1,10 @@
 package com.mynotes.stuffs
 
 import android.content.res.Configuration
+import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-
 
 open class BaseActivity: AppCompatActivity(){
 
@@ -17,7 +17,12 @@ open class BaseActivity: AppCompatActivity(){
         baseContext.createConfigurationContext(configuration)
     }
 
-    fun showAlert(activity: BaseActivity, msg: String){
-        //show msg
+    fun showAlert(msg: String){
+        Snackbar.make(window.decorView.rootView, msg, Snackbar.LENGTH_LONG)
+            .apply {
+                (this.view.layoutParams as ViewGroup.MarginLayoutParams)
+                    .apply { setMargins(50, 0, 50, 130) }
+                show()
+            }
     }
 }
