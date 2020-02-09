@@ -1,10 +1,15 @@
 package com.mynotes.stuffs
 
 import android.content.res.Configuration
+import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
+import com.mynotes.R
 
 open class BaseActivity: AppCompatActivity(){
 
@@ -18,11 +23,24 @@ open class BaseActivity: AppCompatActivity(){
     }
 
     fun showAlert(msg: String){
-        Snackbar.make(window.decorView.rootView, msg, Snackbar.LENGTH_LONG)
-            .apply {
-                (this.view.layoutParams as ViewGroup.MarginLayoutParams)
-                    .apply { setMargins(50, 0, 50, 130) }
-                show()
-            }
+        val snack = Snackbar.make(window.decorView.rootView, msg, Snackbar.LENGTH_LONG).apply{
+            (view.layoutParams as ViewGroup.MarginLayoutParams)
+                .apply { setMargins(30,0,30,100) }
+        }
+
+        val view = snack.view
+        view.setPadding(15, 15, 15, 15)
+        view.setBackgroundResource(R.drawable.rc_white70)
+        val tv = view.findViewById(R.id.snackbar_text) as TextView
+        tv.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
+        tv.textSize = 16f
+        tv.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
+
+        val params = view.layoutParams as ViewGroup.MarginLayoutParams
+        params.setMargins(30, 0, 30, 100)
+        view.layoutParams = params
+
+        snack.show()
     }
 }
