@@ -1,11 +1,14 @@
 package com.mynotes.activities
 
+import android.app.ProgressDialog.show
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
 import com.mynotes.stuffs.BaseActivity
 import com.mynotes.stuffs.Prefs
