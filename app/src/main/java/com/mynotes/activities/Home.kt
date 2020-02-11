@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.home.*
 
 class Home : BaseActivity() {
 
-    var notes = ArrayList<NoteI>()
+    private var notes = ArrayList<NoteI>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
