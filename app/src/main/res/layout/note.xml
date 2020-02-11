@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".activities.Note">
+    tools:context=".activities.Note"
+    android:orientation="vertical"
+    android:padding="@dimen/d15">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/no_title"
+        android:background="@drawable/rc_white20"
+        android:paddingTop="@dimen/d15"
+        android:paddingBottom="@dimen/d15"
+        android:paddingStart="@dimen/d20"
+        android:paddingEnd="@dimen/d20"
+        android:hint="@string/your_title"
+        android:fontFamily="@font/bold"
+        android:inputType="text"
+        android:textSize="@dimen/t18"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/no_content"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:background="@drawable/rcs_white70"
+        android:padding="@dimen/d20"
+        android:hint="@string/your_content"
+        android:layout_marginTop="@dimen/d15"
+        android:layout_marginBottom="@dimen/d15"
+        android:fontFamily="@font/regular"
+        android:textSize="@dimen/t17"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/no_discard"
+            android:text="@string/discard"
+            android:textSize="@dimen/t15"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/black"
+            android:background="@drawable/rc_white70_button"/>
+
+        <View
+            android:layout_width="@dimen/d15"
+            android:layout_height="@dimen/d1"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/no_save"
+            android:text="@string/save"
+            android:textSize="@dimen/t15"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/black"
+            android:background="@drawable/rc_white70_button"/>
+
+    </LinearLayout>
+
+</LinearLayout>

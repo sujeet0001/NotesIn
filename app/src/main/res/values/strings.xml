@@ -9,4 +9,8 @@
     <string name="change_it">Change it!</string>
     <string name="notes">Notes</string>
     <string name="no_notes">No notes found!\nTap (+) icon to add a note</string>
+    <string name="your_title">Your Title</string>
+    <string name="your_content">Your Content</string>
+    <string name="discard">Discard</string>
+    <string name="save">Save</string>
 </resources>

@@ -16,10 +16,9 @@
         android:id="@+id/noi_title"
         android:textSize="@dimen/t16"
         android:fontFamily="@font/bold"
-        android:maxLines="1"
+        android:maxLines="2"
         android:ellipsize="end"
-        android:layout_marginBottom="@dimen/d2"
-        android:text="gfdgfdgfdgd"/>
+        android:layout_marginBottom="@dimen/d2" />
 
     <TextView
         android:layout_width="match_parent"
@@ -27,8 +26,7 @@
         android:id="@+id/noi_content"
         android:textSize="@dimen/t15"
         android:fontFamily="@font/regular"
-        android:maxLines="2"
-        android:ellipsize="end"
-        android:text="gfdgfdgfdgd"/>
+        android:maxLines="3"
+        android:ellipsize="end" />
 
 </LinearLayout>

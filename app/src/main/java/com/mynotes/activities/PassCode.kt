@@ -23,8 +23,6 @@ class PassCode : BaseActivity() {
         pc_passcode.isEnabled = false
         prefs = Prefs(applicationContext)
 
-        showAlert("dfdef")
-
         val dot: String = getString(R.string.dot)
         pc_0.setOnClickListener { addChar(dot, "0") }
         pc_1.setOnClickListener { addChar(dot, "1") }
