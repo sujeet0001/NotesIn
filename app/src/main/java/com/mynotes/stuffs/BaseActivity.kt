@@ -11,7 +11,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
 
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity: AppCompatActivity() {
 
     fun adjustFontScale(configuration: Configuration) {
         configuration.fontScale = 1.0.toFloat()

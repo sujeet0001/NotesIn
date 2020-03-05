@@ -1,27 +1,25 @@
 package com.mynotes.activities
 
-import android.app.ProgressDialog.show
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
 import com.mynotes.stuffs.BaseActivity
 import com.mynotes.stuffs.Prefs
 import com.mynotes.stuffs.Strs
-import kotlinx.android.synthetic.main.change_password.*
+import kotlinx.android.synthetic.main.change_passcode.*
 
-class ChangePassword : BaseActivity() {
+class ChangePasscode : BaseActivity() {
 
     private var prefs: Prefs? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.change_password)
+        adjustFontScale(resources.configuration)
+        setContentView(R.layout.change_passcode)
 
         cp_back.setOnClickListener { onBackPressed() }
 

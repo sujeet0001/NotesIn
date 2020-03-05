@@ -13,12 +13,12 @@ class Home : BaseActivity() {
 
     private var notes = ArrayList<NoteI>()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        adjustFontScale(resources.configuration)
         setContentView(R.layout.home)
 
-        ho_chngpasscode.setOnClickListener{startActivity(Intent(applicationContext, ChangePassword::class.java))}
+        ho_chngpasscode.setOnClickListener{startActivity(Intent(applicationContext, ChangePasscode::class.java))}
         ho_add.setOnClickListener{startActivity(Intent(applicationContext, Note::class.java))}
 
         notes.add(NoteI("guygguguy", "guckclucuvuuliu"))

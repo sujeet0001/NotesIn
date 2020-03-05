@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.Note"></activity>
-        <activity android:name=".activities.ChangePassword" />
+        <activity android:name=".activities.ChangePasscode" />
         <activity android:name=".activities.Home" />
         <activity
             android:name=".activities.PassCode"
@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -28,7 +28,7 @@
         android:id="@+id/no_content"
         android:layout_weight="1"
         android:gravity="top"
-        android:background="@drawable/rcs_white70"
+        android:background="@drawable/rcs_white25"
         android:padding="@dimen/d20"
         android:hint="@string/your_content"
         android:layout_marginTop="@dimen/d15"
@@ -57,15 +57,15 @@
             android:layout_height="@dimen/d1"/>
 
         <Button
+            android:id="@+id/no_save"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/no_save"
-            android:text="@string/save"
-            android:textSize="@dimen/t15"
+            android:background="@drawable/rc_white70_button"
             android:fontFamily="@font/bold"
+            android:text="@string/save"
             android:textColor="@color/black"
-            android:background="@drawable/rc_white70_button"/>
+            android:textSize="@dimen/t15" />
 
     </LinearLayout>
 
