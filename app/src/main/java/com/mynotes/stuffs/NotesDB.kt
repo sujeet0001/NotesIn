@@ -19,7 +19,7 @@ abstract class NotesDB : RoomDatabase() {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
                         NotesDB::class.java,
-                        "myDB"
+                        "notesTable"
                     ).build()
                 }
             }
