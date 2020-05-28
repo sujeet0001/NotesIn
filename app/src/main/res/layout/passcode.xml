@@ -30,6 +30,7 @@
         android:textColor="@color/white_70"
         android:textSize="@dimen/t25"
         android:maxLines="1"
+        android:enabled="false"
         android:cursorVisible="false"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +43,7 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="1"
+            android:text="@string/_1"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
             app:layout_constraintBottom_toTopOf="@id/pc_4"
@@ -56,13 +57,13 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="2"
+            android:text="@string/_2"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/pc_5" />
+            app:layout_constraintBottom_toBottomOf="@id/pc_1" />
 
         <Button
             android:id="@+id/pc_3"
@@ -70,13 +71,13 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="3"
+            android:text="@string/_3"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pc_2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/pc_6" />
+            app:layout_constraintBottom_toBottomOf="@id/pc_1" />
 
         <Button
             android:id="@+id/pc_4"
@@ -84,7 +85,7 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="4"
+            android:text="@string/_4"
             android:layout_marginTop="@dimen/d30"
             android:layout_marginBottom="@dimen/d30"
             android:textColor="@color/black"
@@ -100,15 +101,13 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="5"
+            android:text="@string/_5"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
-            android:layout_marginTop="@dimen/d30"
-            android:layout_marginBottom="@dimen/d30"
-            app:layout_constraintBottom_toTopOf="@+id/pc_8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pc_2" />
+            app:layout_constraintTop_toTopOf="@+id/pc_4"
+            app:layout_constraintBottom_toBottomOf="@+id/pc_4"/>
 
         <Button
             android:id="@+id/pc_6"
@@ -116,15 +115,13 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="6"
+            android:text="@string/_6"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
-            android:layout_marginTop="@dimen/d30"
-            android:layout_marginBottom="@dimen/d30"
-            app:layout_constraintBottom_toTopOf="@+id/pc_9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pc_5"
-            app:layout_constraintTop_toBottomOf="@+id/pc_3" />
+            app:layout_constraintTop_toTopOf="@+id/pc_4"
+            app:layout_constraintBottom_toBottomOf="@+id/pc_4" />
 
         <Button
             android:id="@+id/pc_7"
@@ -132,10 +129,9 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="7"
+            android:text="@string/_7"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
-            android:layout_marginBottom="@dimen/d30"
             app:layout_constraintBottom_toTopOf="@id/pc_dummy"
             app:layout_constraintEnd_toStartOf="@+id/pc_8"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,14 +143,13 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="8"
+            android:text="@string/_8"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
-            android:layout_marginBottom="@dimen/d30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pc_5"
-            app:layout_constraintBottom_toTopOf="@id/pc_0" />
+            app:layout_constraintTop_toTopOf="@id/pc_7"
+            app:layout_constraintBottom_toBottomOf="@id/pc_7" />
 
         <Button
             android:id="@+id/pc_9"
@@ -162,19 +157,19 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="9"
+            android:text="@string/_9"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
-            android:layout_marginBottom="@dimen/d30"
-            app:layout_constraintBottom_toTopOf="@id/pc_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pc_8"
-            app:layout_constraintTop_toBottomOf="@id/pc_6" />
+            app:layout_constraintTop_toTopOf="@id/pc_7"
+            app:layout_constraintBottom_toBottomOf="@id/pc_7"/>
 
         <View
             android:layout_width="@dimen/d70"
             android:layout_height="@dimen/d70"
             android:id="@+id/pc_dummy"
+            android:layout_marginTop="@dimen/d30"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/pc_0"
             app:layout_constraintStart_toStartOf="parent"
@@ -186,13 +181,13 @@
             android:layout_height="@dimen/d70"
             android:background="@drawable/r_white70_button"
             android:fontFamily="@font/regular"
-            android:text="0"
+            android:text="@string/_0"
             android:textColor="@color/black"
             android:textSize="@dimen/t25"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pc_8" />
+            app:layout_constraintTop_toTopOf="@+id/pc_dummy" />
 
         <ImageButton
             android:id="@+id/pc_back"
@@ -203,7 +198,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pc_0"
-            app:layout_constraintTop_toBottomOf="@+id/pc_9" />
+            app:layout_constraintTop_toTopOf="@+id/pc_dummy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

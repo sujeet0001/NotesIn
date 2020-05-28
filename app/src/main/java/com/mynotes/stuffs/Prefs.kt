@@ -2,6 +2,7 @@ package com.mynotes.stuffs
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.mynotes.stuffs.Strs.Companion.PASSCODE
 
 class Prefs (context: Context){
 
@@ -41,11 +42,11 @@ class Prefs (context: Context){
     }
 
     fun getPasscode(): String{
-        return sp.getString(Strs.PASSCODE, "1234")
+        return sp.getString(PASSCODE, "1234")
     }
 
     fun setPasscode(value: String){
-        ed.putString(Strs.PASSCODE, value)
+        ed.putString(PASSCODE, value)
         ed.apply()
     }
 }

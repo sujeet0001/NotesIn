@@ -28,7 +28,7 @@
         android:id="@+id/no_content"
         android:layout_weight="1"
         android:gravity="top"
-        android:background="@drawable/rcs_white25"
+        android:background="@drawable/rcs_white70"
         android:padding="@dimen/d20"
         android:hint="@string/your_content"
         android:layout_marginTop="@dimen/d15"

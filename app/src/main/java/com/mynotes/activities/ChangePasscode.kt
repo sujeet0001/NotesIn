@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.EditText
 import com.mynotes.R
 import com.mynotes.stuffs.BaseActivity
 import com.mynotes.stuffs.Prefs
@@ -15,11 +16,16 @@ import kotlinx.android.synthetic.main.change_passcode.*
 class ChangePasscode : BaseActivity() {
 
     private var prefs: Prefs? = null
+    private var code: String = ""
+    private var dot: String = ""
+    private var et: EditText = cp_old
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adjustFontScale(resources.configuration)
         setContentView(R.layout.change_passcode)
+
+        dot = getString(R.string.dot)
 
         cp_back.setOnClickListener { onBackPressed() }
 
@@ -39,6 +45,14 @@ class ChangePasscode : BaseActivity() {
             }
         }
 
+        cp_new.setOnFocusChangeListener{
+                v, b -> et = cp_new
+        }
+
+        cp_newagain.setOnFocusChangeListener{
+                v, b -> et = cp_newagain
+        }
+
         cp_old.addTextChangedListener(
             object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -55,5 +69,10 @@ class ChangePasscode : BaseActivity() {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             })
+    }
+
+    private fun addChar(ch: String) {
+        et.text.append(dot)
+        code += ch
     }
 }

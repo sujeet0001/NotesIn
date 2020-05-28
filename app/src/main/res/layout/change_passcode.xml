@@ -7,8 +7,7 @@
     tools:context=".activities.ChangePasscode"
     android:orientation="vertical"
     android:background="@color/black"
-    android:paddingTop="@dimen/d30"
-    android:paddingBottom="@dimen/d30">
+    android:paddingTop="@dimen/d30">
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -35,13 +34,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:gravity="center_vertical">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -101,26 +97,165 @@
                         android:paddingEnd="@dimen/d20"
                         android:hint="@string/reenter_new_passcode"/>
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/d60"
-                        android:id="@+id/cp_change"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/change_it"
-                        android:textSize="@dimen/t15"
-                        android:fontFamily="@font/bold"
-                        android:textColor="@color/black"
-                        android:background="@drawable/rc_white70_button"
-                        android:paddingStart="@dimen/d20"
-                        android:paddingEnd="@dimen/d20"
-                        android:layout_marginTop="@dimen/d50"/>
-
                 </LinearLayout>
 
             </FrameLayout>
 
-        </ScrollView>
-
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/d30">
+
+        <Button
+            android:id="@+id/cp_0"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_0"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/cp_1"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_1"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintStart_toEndOf="@+id/cp_0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cp_2"/>
+
+        <Button
+            android:id="@+id/cp_2"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_2"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintStart_toEndOf="@+id/cp_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cp_3" />
+
+        <Button
+            android:id="@+id/cp_3"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_3"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintStart_toEndOf="@+id/cp_2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cp_4" />
+
+        <Button
+            android:id="@+id/cp_4"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_4"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintStart_toEndOf="@+id/cp_3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cp_5" />
+
+        <Button
+            android:id="@+id/cp_5"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_5"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/cp_6"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:layout_marginTop="@dimen/d20"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_6"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cp_0" />
+
+        <Button
+            android:id="@+id/cp_7"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_7"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintEnd_toStartOf="@id/cp_8"
+            app:layout_constraintStart_toEndOf="@+id/cp_6"
+            app:layout_constraintTop_toTopOf="@+id/cp_6" />
+
+        <Button
+            android:id="@+id/cp_8"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_8"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintStart_toEndOf="@+id/cp_7"
+            app:layout_constraintEnd_toStartOf="@id/cp_9"
+            app:layout_constraintTop_toTopOf="@+id/cp_6"/>
+
+        <Button
+            android:id="@+id/cp_9"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            android:background="@drawable/rcs_white70"
+            android:fontFamily="@font/regular"
+            android:text="@string/_9"
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/t15"
+            app:layout_constraintStart_toEndOf="@+id/cp_8"
+            app:layout_constraintEnd_toStartOf="@id/cp_backspace"
+            app:layout_constraintTop_toTopOf="@+id/cp_6"/>
+
+        <ImageButton
+            android:id="@+id/cp_backspace"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            app:srcCompat="@drawable/backspace"
+            android:background="@color/trans"
+            app:layout_constraintStart_toEndOf="@id/cp_9"
+            app:layout_constraintEnd_toStartOf="@id/cp_change"
+            app:layout_constraintTop_toTopOf="@+id/cp_6"/>
+
+        <ImageButton
+            android:id="@+id/cp_change"
+            android:layout_width="@dimen/d45"
+            android:layout_height="@dimen/d45"
+            app:srcCompat="@drawable/backspace"
+            android:background="@color/trans"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cp_6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
