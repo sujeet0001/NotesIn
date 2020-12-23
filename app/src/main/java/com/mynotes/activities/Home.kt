@@ -2,6 +2,7 @@ package com.mynotes.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mynotes.R
 import com.mynotes.adapters.NotesA
@@ -18,24 +19,25 @@ class Home : BaseActivity() {
         adjustFontScale(resources.configuration)
         setContentView(R.layout.home)
 
-        ho_chngpasscode.setOnClickListener{startActivity(Intent(applicationContext, ChangeSecretCode::class.java))}
+        ho_change_secret_code.setOnClickListener{startActivity(Intent(applicationContext, ChangeSecretCode::class.java))}
         ho_add.setOnClickListener{startActivity(Intent(applicationContext, Note::class.java))}
 
-        notes.add(NoteI("guygguguy", "guckclucuvuuliu"))
-        notes.add(NoteI("guygguguy", "guckclucuvuuliu"))
-        notes.add(NoteI("guygguguy", "guckclucuvuuliu"))
-        notes.add(NoteI("guygguguy", "guckclucuvuuliu"))
-        notes.add(NoteI("guygguguy", "guckclucuvuuliu"))
-        notes.add(NoteI("guygguguy", "guckclucuvuuliu"))
-        notes.add(NoteI("guygguguy", "guckclucuvuuliu"))
-        notes.add(NoteI("guygguguy", "guckclucuvuuliu"))
-
         initList()
+
+        checkForNotesAvailability()
     }
 
     private fun initList(){
         ho_list.setHasFixedSize(true)
         ho_list.layoutManager = (LinearLayoutManager(applicationContext))
-        ho_list.adapter = (NotesA(notes))
+        ho_list.adapter = NotesA(notes)
+    }
+
+    private fun checkForNotesAvailability(){
+        if(notes.size == 0){
+            ho_no_notes.visibility = View.VISIBLE
+        } else {
+            ho_no_notes.visibility = View.GONE
+        }
     }
 }

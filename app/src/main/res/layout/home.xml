@@ -20,7 +20,6 @@
         android:paddingTop="@dimen/d15"
         android:paddingEnd="@dimen/d20"
         android:paddingBottom="@dimen/d15"
-        android:layout_marginBottom="@dimen/d15"
         android:background="@drawable/rc_white70"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -44,10 +43,11 @@
             app:srcCompat="@drawable/add" />
 
         <ImageButton
-            android:id="@+id/ho_chngpasscode"
+            android:id="@+id/ho_change_secret_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/trans"
+            android:contentDescription="@string/change_secret_code"
             app:srcCompat="@drawable/change_password" />
 
     </LinearLayout>
@@ -56,14 +56,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/ho_list"
+        android:layout_marginTop="@dimen/d15"
         tools:listitem="@layout/note_i"
         android:layout_below="@id/ho_lay"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ho_no_notes"
+        android:layout_below="@id/ho_lay"
         android:fontFamily="@font/regular"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:text="@string/no_notes"
         android:textSize="@dimen/t16"
         android:visibility="gone"

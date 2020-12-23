@@ -118,25 +118,25 @@ class ChangeSecretCode : BaseActivity() {
     private fun showSecretCodeSaveAlert() {
         snack = Snackbar.make(window.decorView.rootView, "Codes matched, want to save it?", 5000)
         snack?.apply {
-            val view = snack!!.view
-            view.setPadding(
+            val view = snack?.view
+            view?.setPadding(
                 resources.getDimension(R.dimen.d10).toInt(),
                 resources.getDimension(R.dimen.d10).toInt(),
                 resources.getDimension(R.dimen.d15).toInt(),
                 resources.getDimension(R.dimen.d10).toInt()
             )
-            view.setBackgroundResource(R.drawable.rc_gray)
-            val tv = view.findViewById(R.id.snackbar_text) as TextView
+            view?.setBackgroundResource(R.drawable.rc_gray)
+            val tv = view?.findViewById(R.id.snackbar_text) as TextView
             tv.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
             tv.textSize = resources.getDimension(R.dimen.t9)
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
-            snack!!.setAction("Yes", View.OnClickListener {
+            snack?.setAction("Yes") {
                 Prefs.getPrefs(applicationContext).setSecretCode(codeNew)
                 showAlert(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
                 Handler().postDelayed({
                     onBackPressed()
                 }, 2000)
-            })
+            }
             val btn = view.findViewById(R.id.snackbar_action) as Button
             btn.setBackgroundResource(R.drawable.rc_green)
             btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
@@ -162,7 +162,7 @@ class ChangeSecretCode : BaseActivity() {
 
     private fun dismissSnack(){
         if(snack != null){
-            snack!!.dismiss()
+            snack?.dismiss()
             snack = null
         }
     }
