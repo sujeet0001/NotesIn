@@ -1,4 +1,4 @@
-package com.mynotes.stuffs
+package com.mynotes.utils
 
 import android.content.Context
 import androidx.room.Database
@@ -11,7 +11,7 @@ abstract class NotesDB : RoomDatabase() {
     abstract fun notesDao(): NotesDao
 
     companion object {
-        var INSTANCE: NotesDB? = null
+        private var INSTANCE: NotesDB? = null
 
         fun getNotesDB(context: Context): NotesDB? {
             if (INSTANCE == null) {

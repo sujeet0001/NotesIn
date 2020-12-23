@@ -1,10 +1,9 @@
 package com.mynotes.activities
 
 import android.os.Bundle
-import androidx.room.Room
 import com.mynotes.R
-import com.mynotes.stuffs.BaseActivity
-import com.mynotes.stuffs.NotesDB
+import com.mynotes.utils.BaseActivity
+import com.mynotes.utils.NotesDB
 import kotlinx.android.synthetic.main.note.*
 
 class Note : BaseActivity() {
@@ -14,11 +13,10 @@ class Note : BaseActivity() {
         adjustFontScale(resources.configuration)
         setContentView(R.layout.note)
 
-        no_discard.setOnClickListener { onBackPressed() }
+        no_back.setOnClickListener { onBackPressed() }
         no_save.setOnClickListener {  }
 
         val db = NotesDB.getNotesDB(applicationContext)
-
 
     }
 }

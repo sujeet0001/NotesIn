@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/bold"
-            android:text="@string/notes"
+            android:text="@string/my_notes"
             android:textColor="@color/black"
             android:textSize="@dimen/t25" />
 
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/d15"
             android:layout_marginEnd="@dimen/d15"
-            android:padding="@dimen/d5"
+            android:padding="@dimen/d10"
             android:background="@drawable/r_black"
             app:srcCompat="@drawable/add" />
 

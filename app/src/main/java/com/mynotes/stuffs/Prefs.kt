@@ -1,52 +1,61 @@
-package com.mynotes.stuffs
+package com.mynotes.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.mynotes.stuffs.Strs.Companion.PASSCODE
+import com.mynotes.utils.Constants.Companion.SECRET_CODE
 
-class Prefs (context: Context){
+class Prefs {
 
-    private var sp: SharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-    private var ed: SharedPreferences.Editor
+    companion object {
 
-    init {
-        ed = sp.edit()
-        ed.apply()
+        private var prefs: Prefs? = null
+        private lateinit var sp: SharedPreferences
+        private lateinit var ed: SharedPreferences.Editor
+
+        fun getPrefs(context: Context): Prefs {
+            if (prefs == null) {
+                prefs = Prefs()
+                sp = context.getSharedPreferences("NotesPrefs", Context.MODE_PRIVATE)
+                ed = sp.edit()
+                ed.apply()
+            }
+            return prefs!!
+        }
     }
 
-    fun getString(key: String): String{
+    fun getString(key: String): String {
         return sp.getString(key, "")
     }
 
-    fun setString(key: String, value: String){
+    fun setString(key: String, value: String) {
         ed.putString(key, value)
         ed.apply()
     }
 
-    fun getInt(key: String): Int{
+    fun getInt(key: String): Int {
         return sp.getInt(key, 0)
     }
 
-    fun setInt(key: String, value: Int){
+    fun setInt(key: String, value: Int) {
         ed.putInt(key, value)
         ed.apply()
     }
 
-    fun getBool(key: String): Boolean{
+    fun getBool(key: String): Boolean {
         return sp.getBoolean(key, false)
     }
 
-    fun setBool(key: String, value: Boolean){
+    fun setBool(key: String, value: Boolean) {
         ed.putBoolean(key, value)
         ed.apply()
     }
 
-    fun getPasscode(): String{
-        return sp.getString(PASSCODE, "1234")
+    fun getSecretCode(): String {
+        return sp.getString(SECRET_CODE, "1234")
     }
 
-    fun setPasscode(value: String){
-        ed.putString(PASSCODE, value)
+    fun setSecretCode(value: String) {
+        ed.putString(SECRET_CODE, value)
         ed.apply()
     }
 }

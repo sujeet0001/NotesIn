@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mynotes.R
 import com.mynotes.adapters.NotesA
 import com.mynotes.models.NoteI
-import com.mynotes.stuffs.BaseActivity
+import com.mynotes.utils.BaseActivity
 import kotlinx.android.synthetic.main.home.*
 
 class Home : BaseActivity() {
@@ -18,7 +18,7 @@ class Home : BaseActivity() {
         adjustFontScale(resources.configuration)
         setContentView(R.layout.home)
 
-        ho_chngpasscode.setOnClickListener{startActivity(Intent(applicationContext, ChangePasscode::class.java))}
+        ho_chngpasscode.setOnClickListener{startActivity(Intent(applicationContext, ChangeSecretCode::class.java))}
         ho_add.setOnClickListener{startActivity(Intent(applicationContext, Note::class.java))}
 
         notes.add(NoteI("guygguguy", "guckclucuvuuliu"))

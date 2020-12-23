@@ -3,25 +3,22 @@ package com.mynotes.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
-import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
-import com.mynotes.stuffs.BaseActivity
-import com.mynotes.stuffs.Prefs
-import kotlinx.android.synthetic.main.passcode.*
+import com.mynotes.utils.BaseActivity
+import com.mynotes.utils.Prefs
+import kotlinx.android.synthetic.main.secret_code.*
 
 
-class PassCode : BaseActivity() {
+class SecretCode : BaseActivity() {
 
     private var code: String = ""
-    private lateinit var prefs: Prefs
     private var dot: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adjustFontScale(resources.configuration)
-        setContentView(R.layout.passcode)
+        setContentView(R.layout.secret_code)
 
-        prefs = Prefs(applicationContext)
         dot = getString(R.string.dot)
 
         pc_0.setOnClickListener { addChar("0") }
@@ -46,7 +43,7 @@ class PassCode : BaseActivity() {
     private fun addChar(ch: String) {
         pc_passcode.text.append(dot)
         code += ch
-        if(code == prefs.getPasscode()){
+        if(code == Prefs.getPrefs(applicationContext).getSecretCode()){
             startActivity(Intent(this, Home::class.java))
         }
     }

@@ -1,4 +1,4 @@
-package com.mynotes.stuffs
+package com.mynotes.utils
 
 import androidx.room.Dao
 import androidx.room.Insert
