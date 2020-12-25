@@ -36,6 +36,7 @@ open class BaseActivity: AppCompatActivity() {
             tv.textSize = resources.getDimension(R.dimen.t9)
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
             tv.textAlignment = View.TEXT_ALIGNMENT_CENTER
+            tv.maxLines = 10
             (this.view.layoutParams as ViewGroup.MarginLayoutParams)
                 .apply { setMargins(resources.getDimension(R.dimen.d20).toInt(),
                     0,

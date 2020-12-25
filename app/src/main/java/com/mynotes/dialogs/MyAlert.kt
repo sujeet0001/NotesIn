@@ -1,17 +1,11 @@
 package com.mynotes.dialogs
 
 import android.content.Context
-import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
-import android.text.style.StyleSpan
-import android.text.style.TypefaceSpan
-import android.util.Log
 import android.view.View
-import androidx.core.content.res.ResourcesCompat
 import com.mynotes.R
 import com.mynotes.utils.Constants
 import com.mynotes.utils.MyDialog

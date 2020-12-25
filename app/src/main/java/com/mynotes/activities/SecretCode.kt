@@ -45,6 +45,10 @@ class SecretCode : BaseActivity() {
                 code = code.dropLast(1)
             }
         }
+
+        pc_help.setOnClickListener { showAlert("Enter your secret code to proceed. " +
+                "If you have not set your secret code yet, you can type in '0001' " +
+                "which is the default secret code to proceed.", 8000) }
     }
 
     private fun addChar(ch: String) {

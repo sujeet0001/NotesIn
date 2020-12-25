@@ -14,7 +14,7 @@ class Constants {
         const val WELCOME_MSG = "Hey there! welcome to the app.\n\nThis app allows you to " +
                 "create simple text notes.\n\nIt has an inbuilt security feature that allows you to create a secret code " +
                 "and every time you open the app it will ask for the same before proceeding further\n\n"+
-                "The default security code is\n\n0001\n\n" +
+                "The default secret code is\n\n0001\n\n" +
                 "Requesting you to change the security code based on your convenience. " +
                 "You will find an option to change the security code in the dashboard."
 
