@@ -25,8 +25,9 @@
         android:maxLines="1"
         android:ellipsize="end"
         android:maxLength="15"
-        android:textColor="@color/white_70"
+        android:textColor="?attr/d_grey"
         android:gravity="center_vertical"
+        android:textColorHint="?attr/d_white_25"
         android:hint="@string/enter_secret_code" />
 
     <ImageView

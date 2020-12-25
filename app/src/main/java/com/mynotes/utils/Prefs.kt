@@ -2,7 +2,8 @@ package com.mynotes.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.mynotes.utils.Constants.Companion.SECRET_CODE
+import com.mynotes.utils.Constants.Companion.PREF_DARK_MODE
+import com.mynotes.utils.Constants.Companion.PREF_SECRET_CODE
 
 class Prefs {
 
@@ -12,7 +13,7 @@ class Prefs {
         private lateinit var sp: SharedPreferences
         private lateinit var ed: SharedPreferences.Editor
 
-        fun getPrefs(context: Context): Prefs {
+        fun get(context: Context): Prefs {
             if (prefs == null) {
                 prefs = Prefs()
                 sp = context.getSharedPreferences("NotesPrefs", Context.MODE_PRIVATE)
@@ -51,11 +52,21 @@ class Prefs {
     }
 
     fun getSecretCode(): String? {
-        return sp.getString(SECRET_CODE, "0001")
+        return sp.getString(PREF_SECRET_CODE, "0001")
     }
 
     fun setSecretCode(value: String) {
-        ed.putString(SECRET_CODE, value)
+        ed.putString(PREF_SECRET_CODE, value)
         ed.apply()
     }
+
+    fun getDarkMode(): Boolean {
+        return sp.getBoolean(PREF_DARK_MODE, true)
+    }
+
+    fun setDarkMode(isDarkMode: Boolean) {
+        ed.putBoolean(PREF_DARK_MODE, isDarkMode)
+        ed.apply()
+    }
+
 }

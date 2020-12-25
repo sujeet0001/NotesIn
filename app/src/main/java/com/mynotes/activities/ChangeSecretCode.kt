@@ -11,9 +11,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
+import com.mynotes.dialogs.MyAlert
 import com.mynotes.utils.BaseActivity
 import com.mynotes.utils.Constants
 import com.mynotes.utils.Prefs
+import com.mynotes.utils.ViewUtils
 import kotlinx.android.synthetic.main.change_secret_code.*
 import kotlinx.android.synthetic.main.edittext_backspace.view.*
 
@@ -29,6 +31,12 @@ class ChangeSecretCode : BaseActivity() {
         super.onCreate(savedInstanceState)
         adjustFontScale(resources.configuration)
         setContentView(R.layout.change_secret_code)
+
+        //if(!Prefs.get(this).getBool(Constants.PREF_FIRST_TIME_ON_SECRET_CODE_SETTING)){
+            MyAlert(this, Constants.TYPE_FIRST_TIME_SECRET_CODE_SETTING,
+                Constants.MSG_SET_SECRET_CODE).show()
+            Prefs.get(this).setBool(Constants.PREF_FIRST_TIME_ON_SECRET_CODE_SETTING, true)
+        //}
 
         dot = getString(R.string.dot)
         tv = cp_old.eb_et
@@ -60,7 +68,7 @@ class ChangeSecretCode : BaseActivity() {
         tv?.append(dot)
         if (tv == cp_old.eb_et) {
             code += ch
-            if (code == Prefs.getPrefs(applicationContext).getSecretCode()) {
+            if (code == Prefs.get(applicationContext).getSecretCode()) {
                 cp_old.visibility = View.GONE
                 cp_old.startAnimation(
                     AnimationUtils.loadAnimation(applicationContext, R.anim.out_top)
@@ -114,7 +122,6 @@ class ChangeSecretCode : BaseActivity() {
         this.tv = tv
     }
 
-
     private fun showSecretCodeSaveAlert() {
         snack = Snackbar.make(window.decorView.rootView, "Codes matched, want to save it?", 5000)
         snack?.apply {
@@ -125,21 +132,21 @@ class ChangeSecretCode : BaseActivity() {
                 resources.getDimension(R.dimen.d15).toInt(),
                 resources.getDimension(R.dimen.d10).toInt()
             )
-            view?.setBackgroundResource(R.drawable.rc_gray)
+            view?.setBackgroundResource(R.drawable.rc_grey)
             val tv = view?.findViewById(R.id.snackbar_text) as TextView
-            tv.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
-            tv.textSize = resources.getDimension(R.dimen.t8)
+            tv.textSize = resources.getDimension(R.dimen.t9)
             tv.maxLines = 3
-            tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
+            tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
+            tv.setTextColor(ContextCompat.getColor(applicationContext, ViewUtils.getTextColor(applicationContext)))
             snack?.setAction("Yes") {
-                Prefs.getPrefs(applicationContext).setSecretCode(codeNew)
+                Prefs.get(applicationContext).setSecretCode(codeNew)
                 showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
                 Handler().postDelayed({
                     onBackPressed()
                 }, 2000)
             }
             val btn = view.findViewById(R.id.snackbar_action) as Button
-            btn.setBackgroundResource(R.drawable.rc_green)
+            btn.setBackgroundResource(R.drawable.rc_x_green)
             btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
             btn.textSize = resources.getDimension(R.dimen.t9)
             btn.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)

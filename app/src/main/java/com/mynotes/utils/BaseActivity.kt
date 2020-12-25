@@ -30,13 +30,13 @@ open class BaseActivity: AppCompatActivity() {
                 resources.getDimension(R.dimen.d10).toInt(),
                 resources.getDimension(R.dimen.d10).toInt(),
                 resources.getDimension(R.dimen.d10).toInt())
-            view.setBackgroundResource(R.drawable.rc_gray)
+            view.setBackgroundResource(R.drawable.rc_grey)
             val tv = view.findViewById(R.id.snackbar_text) as TextView
-            tv.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
-            tv.textSize = resources.getDimension(R.dimen.t8)
-            tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
+            tv.textSize = resources.getDimension(R.dimen.t9)
+            tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
             tv.textAlignment = View.TEXT_ALIGNMENT_CENTER
             tv.maxLines = 10
+            tv.setTextColor(ContextCompat.getColor(applicationContext, ViewUtils.getTextColor(applicationContext)))
             (this.view.layoutParams as ViewGroup.MarginLayoutParams)
                 .apply { setMargins(resources.getDimension(R.dimen.d20).toInt(),
                     0,

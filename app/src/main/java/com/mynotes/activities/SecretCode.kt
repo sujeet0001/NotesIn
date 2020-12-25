@@ -21,9 +21,9 @@ class SecretCode : BaseActivity() {
         adjustFontScale(resources.configuration)
         setContentView(R.layout.secret_code)
 
-        //if(!Prefs.getPrefs(applicationContext).getBool(Constants.FIRST_TIME_OPEN)){
-            MyAlert(this, Constants.FIRST_TIME, Constants.WELCOME_MSG).show()
-            Prefs.getPrefs(applicationContext).setBool(Constants.FIRST_TIME_OPEN, true)
+        //if(!Prefs.get(applicationContext).getBool(Constants.PREF_FIRST_TIME_OPEN)){
+            MyAlert(this, Constants.TYPE_FIRST_TIME, Constants.MSG_WELCOME).show()
+            Prefs.get(applicationContext).setBool(Constants.PREF_FIRST_TIME_OPEN, true)
         //}
 
         dot = getString(R.string.dot)
@@ -54,7 +54,7 @@ class SecretCode : BaseActivity() {
     private fun addChar(ch: String) {
         pc_passcode.text.append(dot)
         code += ch
-        if(code == Prefs.getPrefs(applicationContext).getSecretCode()){
+        if(code == Prefs.get(applicationContext).getSecretCode()){
             startActivity(Intent(this, Home::class.java))
         }
     }

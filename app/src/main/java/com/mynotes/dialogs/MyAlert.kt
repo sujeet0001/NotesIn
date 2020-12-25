@@ -25,15 +25,17 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setUpDialog(R.color.trans, closeOnBackPress = false, closeOnOutsideTouch = false)
+        setUpDialog(R.drawable.rc_grey, closeOnBackPress = false, closeOnOutsideTouch = false)
 
-        if(type == Constants.FIRST_TIME){
+        if(type == Constants.TYPE_FIRST_TIME || type == Constants.TYPE_FIRST_TIME_SECRET_CODE_SETTING){
 
             setContentView(R.layout.first_time_alert)
             fta_close.setOnClickListener { dismiss() }
             val str = SpannableString(msg)
-            str.setSpan(RelativeSizeSpan(1.7f), msg.indexOf("0"),
-                msg.indexOf("1") + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            if(type == Constants.TYPE_FIRST_TIME){
+                str.setSpan(RelativeSizeSpan(1.7f), msg.indexOf("0"),
+                    msg.indexOf("1") + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            }
             fta_msg.text = str
 
         } else {
@@ -41,7 +43,7 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
             setContentView(R.layout.my_alert)
             ma_msg.text = msg
             when (type){
-                Constants.FIRST_TIME_SECRET_CODE_SETTING_INFO -> {
+                Constants.TYPE_FIRST_TIME_SECRET_CODE_SETTING -> {
                     ma_no.visibility = View.GONE
                 }
             }

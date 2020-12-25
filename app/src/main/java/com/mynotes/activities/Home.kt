@@ -3,6 +3,7 @@ package com.mynotes.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mynotes.R
 import com.mynotes.adapters.NotesA

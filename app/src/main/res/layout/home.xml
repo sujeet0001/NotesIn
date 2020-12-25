@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="?attr/d_x_black"
     android:paddingStart="@dimen/d15"
     android:paddingEnd="@dimen/d15"
     android:paddingTop="@dimen/d15"
@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/bold"
             android:text="@string/my_notes"
-            android:textColor="@color/black"
+            android:textColor="?attr/d_black"
             android:textSize="@dimen/t25" />
 
         <ImageButton
@@ -69,6 +69,7 @@
         android:gravity="center"
         android:text="@string/no_notes"
         android:textSize="@dimen/t16"
+        android:textColor="?attr/d_grey"
         android:visibility="gone"
         android:layout_centerInParent="true" />
 

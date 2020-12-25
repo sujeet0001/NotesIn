@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white_70">#B3FFFFFF</color>
-    <color name="black">#000</color>
-    <color name="black_25">#40000000</color>
-    <color name="white_25">#40FFFFFF</color>
+
     <color name="trans">#00000000</color>
-    <color name="green">#5CA08E</color>
-    <color name="gray">#B3B3B3</color>
-    <color name="red">#EE7674</color>
+    <color name="grey">#B3B3B3</color>
+    <color name="grey_dark">#2E2E2E</color>
+    <color name="black">#000</color>
+    <color name="white">#FFF</color>
+
+    <!--Dark mode colors-->
+    <color name="d_white_70">#B3FFFFFF</color>
+    <color name="d_black_25">#40000000</color>
+    <color name="d_white_25">#40FFFFFF</color>
+    <color name="d_green">#5CA08E</color>
+    <color name="d_red">#EE7674</color>
+
+    <!--Light mode colors-->
+    <color name="l_black_70">#B3000000</color>
+    <color name="l_white_25">#40FFFFFF</color>
+    <color name="l_black_40">#66000000</color>
+    <color name="l_green">#254636</color>
+    <color name="l_red">#D1495B</color>
+
 </resources>
