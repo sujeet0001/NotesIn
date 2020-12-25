@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
-import android.view.Gravity
 import android.view.View
 import com.mynotes.R
 import com.mynotes.utils.Constants
 import com.mynotes.utils.MyDialog
+import kotlinx.android.synthetic.main.first_time_alert.*
 import kotlinx.android.synthetic.main.my_alert.*
 
 class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
@@ -25,24 +25,28 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setUpDialog(R.drawable.rc_gray, closeOnBackPress = false, closeOnOutsideTouch = false)
-        setContentView(R.layout.my_alert)
-        ma_msg.text = msg
-        when (type){
-            Constants.FIRST_TIME -> {
-                ma_close.visibility = View.VISIBLE
-                ma_yes_no.visibility = View.GONE
-                val str = SpannableString(msg)
-                str.setSpan(RelativeSizeSpan(1.7f), msg.indexOf("0"),
-                    msg.indexOf("1") + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                ma_msg.text = str
-                ma_msg.gravity = Gravity.NO_GRAVITY
+        setUpDialog(R.color.trans, closeOnBackPress = false, closeOnOutsideTouch = false)
+
+        if(type == Constants.FIRST_TIME){
+
+            setContentView(R.layout.first_time_alert)
+            fta_close.setOnClickListener { dismiss() }
+            val str = SpannableString(msg)
+            str.setSpan(RelativeSizeSpan(1.7f), msg.indexOf("0"),
+                msg.indexOf("1") + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            fta_msg.text = str
+
+        } else {
+
+            setContentView(R.layout.my_alert)
+            ma_msg.text = msg
+            when (type){
+                Constants.FIRST_TIME_SECRET_CODE_SETTING_INFO -> {
+                    ma_no.visibility = View.GONE
+                }
             }
-            Constants.FIRST_TIME_SECRET_CODE_SETTING_INFO -> {
-                ma_no.visibility = View.GONE
-            }
+            setClickListeners()
         }
-        setClickListeners()
     }
 
     private fun setClickListeners(){
