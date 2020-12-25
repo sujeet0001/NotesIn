@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/d20">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ma_close"
+        app:srcCompat="@drawable/close"
+        android:layout_gravity="end"
+        android:padding="@dimen/d10"
+        android:background="@drawable/r_black"
+        android:layout_marginBottom="@dimen/d10"
+        android:visibility="visible"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ma_msg"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/t20"
+        android:fontFamily="@font/bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ma_yes_no"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/d30"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ma_no"
+            android:background="@drawable/btn_rc_red"
+            android:text="@string/no"
+            android:textAllCaps="false"
+            android:textSize="@dimen/t18"
+            android:fontFamily="@font/bold"
+            android:layout_marginStart="@dimen/d15"
+            android:layout_marginEnd="@dimen/d15"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ma_yes"
+            android:background="@drawable/btn_rc_green"
+            android:text="@string/yes"
+            android:textAllCaps="false"
+            android:textSize="@dimen/t18"
+            android:fontFamily="@font/bold"
+            android:layout_marginStart="@dimen/d15"
+            android:layout_marginEnd="@dimen/d15"/>
+
+    </LinearLayout>
+
+</LinearLayout>

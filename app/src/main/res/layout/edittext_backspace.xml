@@ -24,6 +24,7 @@
         android:paddingEnd="@dimen/d10"
         android:maxLines="1"
         android:ellipsize="end"
+        android:maxLength="15"
         android:textColor="@color/white_70"
         android:gravity="center_vertical"
         android:hint="@string/enter_secret_code" />

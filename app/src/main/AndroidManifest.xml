@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.Note"/>
-        <activity android:name=".activities.ChangeSecretCode" />
-        <activity android:name=".activities.Home" />
+        <activity android:name=".activities.Note"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ChangeSecretCode"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.Home"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.SecretCode"
+            android:screenOrientation="portrait"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

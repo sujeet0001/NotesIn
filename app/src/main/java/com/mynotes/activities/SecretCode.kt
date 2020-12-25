@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import com.mynotes.R
+import com.mynotes.dialogs.MyAlert
 import com.mynotes.utils.BaseActivity
+import com.mynotes.utils.Constants
 import com.mynotes.utils.Prefs
 import kotlinx.android.synthetic.main.secret_code.*
 
@@ -18,6 +20,11 @@ class SecretCode : BaseActivity() {
         super.onCreate(savedInstanceState)
         adjustFontScale(resources.configuration)
         setContentView(R.layout.secret_code)
+
+        //if(!Prefs.getPrefs(applicationContext).getBool(Constants.FIRST_TIME_OPEN)){
+            MyAlert(this, Constants.FIRST_TIME, Constants.WELCOME_MSG).show()
+            Prefs.getPrefs(applicationContext).setBool(Constants.FIRST_TIME_OPEN, true)
+        //}
 
         dot = getString(R.string.dot)
 

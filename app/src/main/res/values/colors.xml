@@ -2,8 +2,10 @@
 <resources>
     <color name="white_70">#B3FFFFFF</color>
     <color name="black">#000</color>
+    <color name="black_25">#40000000</color>
     <color name="white_25">#40FFFFFF</color>
     <color name="trans">#00000000</color>
     <color name="green">#5CA08E</color>
     <color name="gray">#B3B3B3</color>
+    <color name="red">#EE7674</color>
 </resources>

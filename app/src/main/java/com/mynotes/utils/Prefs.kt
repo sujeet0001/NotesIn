@@ -23,7 +23,7 @@ class Prefs {
         }
     }
 
-    fun getString(key: String): String {
+    fun getString(key: String): String? {
         return sp.getString(key, "")
     }
 
@@ -50,8 +50,8 @@ class Prefs {
         ed.apply()
     }
 
-    fun getSecretCode(): String {
-        return sp.getString(SECRET_CODE, "1234")
+    fun getSecretCode(): String? {
+        return sp.getString(SECRET_CODE, "0001")
     }
 
     fun setSecretCode(value: String) {
