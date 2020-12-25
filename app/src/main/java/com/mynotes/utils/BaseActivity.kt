@@ -22,7 +22,7 @@ open class BaseActivity: AppCompatActivity() {
         baseContext.createConfigurationContext(configuration)
     }
 
-    fun showAlert(msg: String, time: Int) {
+    fun showSnack(msg: String, time: Int) {
         val snack = Snackbar.make(window.decorView.rootView, msg, time)
         snack.apply {
             val view = snack.view
@@ -33,7 +33,7 @@ open class BaseActivity: AppCompatActivity() {
             view.setBackgroundResource(R.drawable.rc_gray)
             val tv = view.findViewById(R.id.snackbar_text) as TextView
             tv.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
-            tv.textSize = resources.getDimension(R.dimen.t9)
+            tv.textSize = resources.getDimension(R.dimen.t8)
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
             tv.textAlignment = View.TEXT_ALIGNMENT_CENTER
             tv.maxLines = 10

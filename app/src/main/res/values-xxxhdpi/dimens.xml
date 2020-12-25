@@ -34,6 +34,10 @@
     <dimen name="d175">175dp</dimen>
     <dimen name="d200">200dp</dimen>
 
+    <dimen name="t5">5sp</dimen>
+    <dimen name="t6">5sp</dimen>
+    <dimen name="t7">7sp</dimen>
+    <dimen name="t8">8sp</dimen>
     <dimen name="t9">9sp</dimen>
     <dimen name="t10">10sp</dimen>
     <dimen name="t11">11sp</dimen>

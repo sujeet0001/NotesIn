@@ -46,7 +46,7 @@ class SecretCode : BaseActivity() {
             }
         }
 
-        pc_help.setOnClickListener { showAlert("Enter your secret code to proceed. " +
+        pc_help.setOnClickListener { showSnack("Enter your secret code to proceed. " +
                 "If you have not set your secret code yet, you can type in '0001' " +
                 "which is the default secret code to proceed.", 8000) }
     }

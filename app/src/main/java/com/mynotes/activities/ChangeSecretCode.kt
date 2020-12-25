@@ -73,7 +73,7 @@ class ChangeSecretCode : BaseActivity() {
                 cp_newagain.eb_et.hint = resources.getText(R.string.reenter_new_secret_code)
                 highlightText(cp_new, cp_newagain, cp_new.eb_et)
                 code = ""
-                showAlert("Type in same codes in both the fields", 4000)
+                showSnack("Type in same codes in both the fields", 4000)
             }
         } else if (tv == cp_new.eb_et) {
             code += ch
@@ -128,11 +128,12 @@ class ChangeSecretCode : BaseActivity() {
             view?.setBackgroundResource(R.drawable.rc_gray)
             val tv = view?.findViewById(R.id.snackbar_text) as TextView
             tv.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
-            tv.textSize = resources.getDimension(R.dimen.t9)
+            tv.textSize = resources.getDimension(R.dimen.t8)
+            tv.maxLines = 3
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
             snack?.setAction("Yes") {
                 Prefs.getPrefs(applicationContext).setSecretCode(codeNew)
-                showAlert(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
+                showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
                 Handler().postDelayed({
                     onBackPressed()
                 }, 2000)

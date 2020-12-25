@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
+import android.view.Gravity
 import android.view.View
 import com.mynotes.R
 import com.mynotes.utils.Constants
@@ -31,19 +32,17 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
             Constants.FIRST_TIME -> {
                 ma_close.visibility = View.VISIBLE
                 ma_yes_no.visibility = View.GONE
-
                 val str = SpannableString(msg)
-                str.setSpan(RelativeSizeSpan(1.8f), msg.indexOf("0"),
+                str.setSpan(RelativeSizeSpan(1.7f), msg.indexOf("0"),
                     msg.indexOf("1") + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 ma_msg.text = str
+                ma_msg.gravity = Gravity.NO_GRAVITY
             }
             Constants.FIRST_TIME_SECRET_CODE_SETTING_INFO -> {
                 ma_no.visibility = View.GONE
             }
         }
-
         setClickListeners()
-
     }
 
     private fun setClickListeners(){
