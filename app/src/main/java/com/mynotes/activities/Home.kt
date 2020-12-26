@@ -3,7 +3,6 @@ package com.mynotes.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mynotes.R
 import com.mynotes.adapters.NotesA
@@ -17,10 +16,11 @@ class Home : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         adjustFontScale(resources.configuration)
         setContentView(R.layout.home)
 
-        ho_change_secret_code.setOnClickListener{startActivity(Intent(applicationContext, ChangeSecretCode::class.java))}
+        ho_settings.setOnClickListener{startActivity(Intent(applicationContext, Settings::class.java))}
         ho_add.setOnClickListener{startActivity(Intent(applicationContext, Note::class.java))}
 
         initList()

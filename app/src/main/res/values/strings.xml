@@ -23,4 +23,8 @@
     <string name="done">Done</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="settings">Settings</string>
+    <string name="system_display">System Display Theme</string>
+    <string name="system_display_info">Your app theme changes\naccording to the system display theme.</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

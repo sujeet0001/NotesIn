@@ -21,9 +21,10 @@ class Constants {
 
         // Preferences
         const val PREF_SECRET_CODE = "secretCode"
-        const val PREF_FIRST_TIME_OPEN = "FIRST_TIME_OPEN"
-        const val PREF_FIRST_TIME_ON_SECRET_CODE_SETTING = "FIRST_TIME_ON_SECRET_CODE_SETTING_PAGE"
+        const val PREF_FIRST_TIME_OPEN = "firstTimeOpen"
+        const val PREF_FIRST_TIME_ON_SECRET_CODE_SETTING = "firstTimeOnSecretCodeSetting"
         const val PREF_DARK_MODE = "darkMode"
+        const val PREF_SYS_THEME_CHANGES_APP_THEME = "sysThemeChangesAppTheme"
 
     }
 }

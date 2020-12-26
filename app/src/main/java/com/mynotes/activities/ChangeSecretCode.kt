@@ -15,7 +15,7 @@ import com.mynotes.dialogs.MyAlert
 import com.mynotes.utils.BaseActivity
 import com.mynotes.utils.Constants
 import com.mynotes.utils.Prefs
-import com.mynotes.utils.ViewUtils
+import com.mynotes.utils.DisplayUtils
 import kotlinx.android.synthetic.main.change_secret_code.*
 import kotlinx.android.synthetic.main.edittext_backspace.view.*
 
@@ -29,6 +29,7 @@ class ChangeSecretCode : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         adjustFontScale(resources.configuration)
         setContentView(R.layout.change_secret_code)
 
@@ -137,7 +138,7 @@ class ChangeSecretCode : BaseActivity() {
             tv.textSize = resources.getDimension(R.dimen.t9)
             tv.maxLines = 3
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
-            tv.setTextColor(ContextCompat.getColor(applicationContext, ViewUtils.getTextColor(applicationContext)))
+            tv.setTextColor(ContextCompat.getColor(applicationContext, DisplayUtils.getTextColor(applicationContext)))
             snack?.setAction("Yes") {
                 Prefs.get(applicationContext).setSecretCode(codeNew)
                 showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)

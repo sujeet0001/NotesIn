@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.mynotes.utils.Constants.Companion.PREF_DARK_MODE
 import com.mynotes.utils.Constants.Companion.PREF_SECRET_CODE
+import com.mynotes.utils.Constants.Companion.PREF_SYS_THEME_CHANGES_APP_THEME
 
 class Prefs {
 
@@ -60,12 +61,21 @@ class Prefs {
         ed.apply()
     }
 
-    fun getDarkMode(): Boolean {
-        return sp.getBoolean(PREF_DARK_MODE, true)
+    fun isDarkMode(): Boolean {
+        return sp.getBoolean(PREF_DARK_MODE, false)
     }
 
     fun setDarkMode(isDarkMode: Boolean) {
         ed.putBoolean(PREF_DARK_MODE, isDarkMode)
+        ed.apply()
+    }
+
+    fun isSystemThemeChangesAppTheme(): Boolean {
+        return sp.getBoolean(PREF_SYS_THEME_CHANGES_APP_THEME, true)
+    }
+
+    fun setSystemThemeChangesAppTheme(bool: Boolean) {
+        ed.putBoolean(PREF_SYS_THEME_CHANGES_APP_THEME, bool)
         ed.apply()
     }
 

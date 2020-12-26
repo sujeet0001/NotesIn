@@ -3,10 +3,12 @@ package com.mynotes.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import com.mynotes.R
 import com.mynotes.dialogs.MyAlert
 import com.mynotes.utils.BaseActivity
 import com.mynotes.utils.Constants
+import com.mynotes.utils.DisplayUtils
 import com.mynotes.utils.Prefs
 import kotlinx.android.synthetic.main.secret_code.*
 
@@ -18,13 +20,14 @@ class SecretCode : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         adjustFontScale(resources.configuration)
         setContentView(R.layout.secret_code)
 
-        //if(!Prefs.get(applicationContext).getBool(Constants.PREF_FIRST_TIME_OPEN)){
+        if(!Prefs.get(applicationContext).getBool(Constants.PREF_FIRST_TIME_OPEN)){
             MyAlert(this, Constants.TYPE_FIRST_TIME, Constants.MSG_WELCOME).show()
             Prefs.get(applicationContext).setBool(Constants.PREF_FIRST_TIME_OPEN, true)
-        //}
+        }
 
         dot = getString(R.string.dot)
 

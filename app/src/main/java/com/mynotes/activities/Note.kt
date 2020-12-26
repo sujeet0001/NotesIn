@@ -10,6 +10,7 @@ class Note : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         adjustFontScale(resources.configuration)
         setContentView(R.layout.note)
 
