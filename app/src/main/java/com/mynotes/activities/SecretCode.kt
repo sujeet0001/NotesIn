@@ -1,6 +1,7 @@
 package com.mynotes.activities
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -18,9 +19,14 @@ class SecretCode : BaseActivity() {
     private var code: String = ""
     private var dot: String = ""
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        setTheme(DisplayUtils.getTheme(applicationContext))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme()
+        setTheme(DisplayUtils.getTheme(applicationContext))
         adjustFontScale(resources.configuration)
         setContentView(R.layout.secret_code)
 

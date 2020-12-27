@@ -1,5 +1,6 @@
 package com.mynotes.activities
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -27,17 +28,22 @@ class ChangeSecretCode : BaseActivity() {
     private var tv: TextView? = null
     private var snack: Snackbar? = null
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        setTheme(DisplayUtils.getTheme(applicationContext))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme()
+        setTheme(DisplayUtils.getTheme(applicationContext))
         adjustFontScale(resources.configuration)
         setContentView(R.layout.change_secret_code)
 
-        //if(!Prefs.get(this).getBool(Constants.PREF_FIRST_TIME_ON_SECRET_CODE_SETTING)){
+        if(!Prefs.get(this).getBool(Constants.PREF_FIRST_TIME_ON_SECRET_CODE_SETTING)){
             MyAlert(this, Constants.TYPE_FIRST_TIME_SECRET_CODE_SETTING,
                 Constants.MSG_SET_SECRET_CODE).show()
             Prefs.get(this).setBool(Constants.PREF_FIRST_TIME_ON_SECRET_CODE_SETTING, true)
-        //}
+        }
 
         dot = getString(R.string.dot)
         tv = cp_old.eb_et
@@ -138,7 +144,7 @@ class ChangeSecretCode : BaseActivity() {
             tv.textSize = resources.getDimension(R.dimen.t9)
             tv.maxLines = 3
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
-            tv.setTextColor(ContextCompat.getColor(applicationContext, DisplayUtils.getTextColor(applicationContext)))
+            tv.setTextColor(ContextCompat.getColor(applicationContext, DisplayUtils.getToastTextColor(applicationContext)))
             snack?.setAction("Yes") {
                 Prefs.get(applicationContext).setSecretCode(codeNew)
                 showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
@@ -162,7 +168,7 @@ class ChangeSecretCode : BaseActivity() {
                         resources.getDimension(R.dimen.d20).toInt(),
                         0,
                         resources.getDimension(R.dimen.d20).toInt(),
-                        resources.getDimension(R.dimen.d50).toInt()
+                        resources.getDimension(R.dimen.d70).toInt()
                     )
                 }
             show()

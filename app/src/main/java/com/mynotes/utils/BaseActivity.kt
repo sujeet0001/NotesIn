@@ -36,30 +36,14 @@ open class BaseActivity: AppCompatActivity() {
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
             tv.textAlignment = View.TEXT_ALIGNMENT_CENTER
             tv.maxLines = 10
-            tv.setTextColor(ContextCompat.getColor(applicationContext, DisplayUtils.getTextColor(applicationContext)))
+            tv.setTextColor(ContextCompat.getColor(applicationContext, DisplayUtils.getToastTextColor(applicationContext)))
             (this.view.layoutParams as ViewGroup.MarginLayoutParams)
                 .apply { setMargins(resources.getDimension(R.dimen.d20).toInt(),
                     0,
                     resources.getDimension(R.dimen.d20).toInt(),
-                    resources.getDimension(R.dimen.d50).toInt())
+                    resources.getDimension(R.dimen.d70).toInt())
                 }
             show()
-        }
-    }
-
-    fun setTheme(){
-        if(Prefs.get(applicationContext).isSystemThemeChangesAppTheme()){
-            if (DisplayUtils.isSystemSetToDarkMode(applicationContext)){
-                setTheme(R.style.AppThemeDark)
-            } else {
-                setTheme(R.style.AppThemeLight)
-            }
-        } else {
-            if(Prefs.get(applicationContext).isDarkMode()){
-                setTheme(R.style.AppThemeDark)
-            } else {
-                setTheme(R.style.AppThemeLight)
-            }
         }
     }
 }

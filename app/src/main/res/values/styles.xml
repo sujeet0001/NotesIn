@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorAccent">@color/grey</item>
+        <item name="android:textColor">@color/grey</item>
         <item name="d_black">@color/black</item>
         <item name="d_grey">@color/grey</item>
         <item name="d_grey_dark">@color/grey_dark</item>
@@ -15,6 +16,9 @@
         <item name="d_green">@color/d_green</item>
         <item name="d_red">@color/d_red</item>
         <item name="d_x_black">@color/black</item>
+        <item name="d_x_grey">@color/grey</item>
+        <item name="d_x_white25">@color/d_white_25</item>
+
     </style>
 
     <!--Light mode theme-->
@@ -22,16 +26,19 @@
         <item name="colorPrimary">@color/grey</item>
         <item name="colorPrimaryDark">@color/grey_dark</item>
         <item name="colorAccent">@color/grey_dark</item>
+        <item name="android:textColor">@color/black</item>
         <item name="d_black">@color/white</item>
         <item name="d_grey">@color/grey_dark</item>
         <item name="d_grey_dark">@color/grey</item>
         <item name="d_black_25">@color/l_white_25</item>
-        <item name="d_white_25">@color/l_black_40</item>
+        <item name="d_white_25">@color/l_black_25</item>
         <item name="d_white_70">@color/l_black_70</item>
         <item name="d_white">@color/black</item>
         <item name="d_green">@color/l_green</item>
         <item name="d_red">@color/l_red</item>
         <item name="d_x_black">@color/grey</item>
+        <item name="d_x_grey">@color/black</item>
+        <item name="d_x_white25">@color/l_black_40</item>
     </style>
 
 </resources>
