@@ -71,7 +71,10 @@ class Prefs {
     }
 
     fun isSystemThemeChangesAppTheme(): Boolean {
-        return sp.getBoolean(PREF_SYS_THEME_CHANGES_APP_THEME, true)
+        if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.P){
+            return sp.getBoolean(PREF_SYS_THEME_CHANGES_APP_THEME, true)
+        }
+        return sp.getBoolean(PREF_SYS_THEME_CHANGES_APP_THEME, false)
     }
 
     fun setSystemThemeChangesAppTheme(bool: Boolean) {

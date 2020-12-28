@@ -1,6 +1,7 @@
 package com.mynotes.utils
 
 import android.content.res.Configuration
+import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -13,7 +14,15 @@ import com.mynotes.R
 
 open class BaseActivity: AppCompatActivity() {
 
-    fun adjustFontScale(configuration: Configuration) {
+    var currentTheme: Int = 0
+
+    fun setViewConfigs(configuration: Configuration, currentTheme: Int){
+        this.currentTheme = currentTheme
+        setTheme(currentTheme)
+        adjustFontScale(configuration)
+    }
+
+    private fun adjustFontScale(configuration: Configuration) {
         configuration.fontScale = 1.0.toFloat()
         val metrics = resources.displayMetrics
         val wm = getSystemService(WINDOW_SERVICE) as WindowManager
@@ -44,6 +53,15 @@ open class BaseActivity: AppCompatActivity() {
                     resources.getDimension(R.dimen.d70).toInt())
                 }
             show()
+        }
+    }
+
+    fun recreateActivityOnThemeChange(activity: BaseActivity){
+        if(DisplayUtils.getTheme(applicationContext) != currentTheme){
+            currentTheme = DisplayUtils.getTheme(applicationContext)
+            Handler().postDelayed({
+                activity.recreate()
+            }, 50)
         }
     }
 }

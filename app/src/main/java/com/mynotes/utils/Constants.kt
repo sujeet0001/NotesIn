@@ -3,6 +3,7 @@ package com.mynotes.utils
 class Constants {
     companion object {
         const val SECRET_CODE_CHANGED = "Your secret code is been successfully changed"
+        const val FROM_HOME = "fromHome"
 
         // Dialog types
         const val TYPE_FIRST_TIME = 0

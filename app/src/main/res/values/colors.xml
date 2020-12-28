@@ -13,6 +13,7 @@
     <color name="d_white_25">#40FFFFFF</color>
     <color name="d_green">#5CA08E</color>
     <color name="d_red">#EE7674</color>
+    <color name="d_white_10">#1AFFFFFF</color>
 
     <!--Light mode colors-->
     <color name="l_black_70">#B3000000</color>
@@ -21,5 +22,6 @@
     <color name="l_black_40">#66000000</color>
     <color name="l_green">#254636</color>
     <color name="l_red">#D1495B</color>
+    <color name="l_white_10">#1A000000</color>
 
 </resources>

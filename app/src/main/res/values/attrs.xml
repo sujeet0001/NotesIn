@@ -13,7 +13,8 @@
         <attr name="d_green" format="color"/>
         <attr name="d_x_black" format="color"/>
         <attr name="d_x_grey" format="color"/>
-        <attr name="d_x_white25" format="color"/>
+        <attr name="d_x_white_25" format="color"/>
+        <attr name="d_white_10" format="color"/>
     </declare-styleable>
     
 </resources>

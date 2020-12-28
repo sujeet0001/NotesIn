@@ -21,13 +21,12 @@ class SecretCode : BaseActivity() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        setTheme(DisplayUtils.getTheme(applicationContext))
+        recreateActivityOnThemeChange(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(DisplayUtils.getTheme(applicationContext))
-        adjustFontScale(resources.configuration)
+        setViewConfigs(resources.configuration, DisplayUtils.getTheme(applicationContext))
         setContentView(R.layout.secret_code)
 
         if(!Prefs.get(applicationContext).getBool(Constants.PREF_FIRST_TIME_OPEN)){
@@ -66,5 +65,10 @@ class SecretCode : BaseActivity() {
         if(code == Prefs.get(applicationContext).getSecretCode()){
             startActivity(Intent(this, Home::class.java))
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        recreateActivityOnThemeChange(this)
     }
 }

@@ -30,13 +30,12 @@ class ChangeSecretCode : BaseActivity() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        setTheme(DisplayUtils.getTheme(applicationContext))
+        recreateActivityOnThemeChange(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(DisplayUtils.getTheme(applicationContext))
-        adjustFontScale(resources.configuration)
+        setViewConfigs(resources.configuration, DisplayUtils.getTheme(applicationContext))
         setContentView(R.layout.change_secret_code)
 
         if(!Prefs.get(this).getBool(Constants.PREF_FIRST_TIME_ON_SECRET_CODE_SETTING)){
@@ -180,5 +179,10 @@ class ChangeSecretCode : BaseActivity() {
             snack?.dismiss()
             snack = null
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        recreateActivityOnThemeChange(this)
     }
 }

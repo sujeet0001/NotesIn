@@ -65,7 +65,7 @@
         android:layout_height="match_parent"
         android:id="@+id/ho_no_notes"
         android:layout_below="@id/ho_lay"
-        android:fontFamily="@font/regular"
+        android:fontFamily="@font/bold"
         android:gravity="center"
         android:text="@string/no_notes"
         android:textSize="@dimen/t18"
