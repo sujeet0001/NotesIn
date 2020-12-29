@@ -18,7 +18,7 @@
         android:orientation="horizontal"
         android:paddingStart="@dimen/d20"
         android:paddingTop="@dimen/d15"
-        android:paddingEnd="@dimen/d20"
+        android:paddingEnd="@dimen/d10"
         android:paddingBottom="@dimen/d15"
         android:background="@drawable/rc_white70"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,8 +36,8 @@
             android:id="@+id/ho_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/d15"
-            android:layout_marginEnd="@dimen/d15"
+            android:layout_marginStart="@dimen/d10"
+            android:layout_marginEnd="@dimen/d5"
             android:padding="@dimen/d10"
             android:background="@drawable/r_black"
             app:srcCompat="@drawable/add" />
@@ -46,6 +46,7 @@
             android:id="@+id/ho_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/d10"
             android:background="@color/trans"
             android:contentDescription="@string/settings"
             app:srcCompat="@drawable/settings" />

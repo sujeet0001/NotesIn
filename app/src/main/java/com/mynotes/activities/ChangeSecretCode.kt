@@ -87,7 +87,7 @@ class ChangeSecretCode : BaseActivity() {
                 cp_newagain.eb_et.hint = resources.getText(R.string.reenter_new_secret_code)
                 highlightText(cp_new, cp_newagain, cp_new.eb_et)
                 code = ""
-                showSnack("Type in same codes in both the fields", 4000)
+                showSnack("Type in same codes in both the fields and make sure the code is of minimum 4 characters", 4000)
             }
         } else if (tv == cp_new.eb_et) {
             code += ch
@@ -95,7 +95,7 @@ class ChangeSecretCode : BaseActivity() {
             codeNew += ch
         }
 
-        if (tv != cp_old.eb_et && cp_new.eb_et.text.isNotEmpty() && (code == codeNew)) {
+        if (code == codeNew && code.length > 3) {
             showSecretCodeSaveAlert()
         }
     }
@@ -115,7 +115,7 @@ class ChangeSecretCode : BaseActivity() {
                     codeNew = codeNew.dropLast(1)
                 }
             }
-            if (this.tv != cp_old.eb_et && cp_new.eb_et.text.isNotEmpty() && (code == codeNew)) {
+            if (code == codeNew && code.length > 3) {
                 showSecretCodeSaveAlert()
             }
         }
