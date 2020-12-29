@@ -36,7 +36,7 @@ class ChangeSecretCode : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setViewConfigs(resources.configuration, DisplayUtils.getTheme(applicationContext))
+        setViewConfigs(resources.configuration)
         setContentView(R.layout.change_secret_code)
         setViews()
         setClickListeners()
@@ -117,7 +117,7 @@ class ChangeSecretCode : BaseActivity() {
                         Prefs.get(applicationContext).enableSecretCode(true)
                         "From now on you will be asked to enter secret code while opening the app"
                     }
-                    Handler().postDelayed({ finish() }, 2500)
+                    Handler().postDelayed({ finish() }, 4000)
                 }
                 showSnack(msg, 4000)
             }

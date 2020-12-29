@@ -26,7 +26,7 @@ class SecretCode : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setViewConfigs(resources.configuration, DisplayUtils.getTheme(applicationContext))
+        setViewConfigs(resources.configuration)
         setContentView(R.layout.secret_code)
 
         if(!Prefs.get(applicationContext).getBool(Constants.PREF_FIRST_TIME_OPEN)){

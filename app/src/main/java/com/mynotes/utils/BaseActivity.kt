@@ -16,9 +16,9 @@ open class BaseActivity: AppCompatActivity() {
 
     var currentTheme: Int = 0
 
-    fun setViewConfigs(configuration: Configuration, currentTheme: Int){
-        this.currentTheme = currentTheme
-        setTheme(currentTheme)
+    fun setViewConfigs(configuration: Configuration){
+        this.currentTheme = DisplayUtils.getTheme(applicationContext)
+        setTheme(this.currentTheme)
         adjustFontScale(configuration)
     }
 
