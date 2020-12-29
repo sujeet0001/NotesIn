@@ -29,91 +29,157 @@
         android:textColor="?attr/d_white_70"
         android:textSize="@dimen/t25" />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/se_change_code"
-        android:paddingStart="@dimen/d20"
-        android:paddingEnd="@dimen/d20"
-        android:paddingTop="@dimen/d25"
-        android:paddingBottom="@dimen/d25"
-        android:layout_marginBottom="@dimen/d2"
-        android:text="@string/change_secret_code"
-        android:textSize="@dimen/t18"
-        android:fontFamily="@font/bold"
-        android:textColor="?attr/d_grey"
-        android:background="@drawable/btn_white25"/>
+        android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/se_system_display_view"
-        android:layout_marginBottom="@dimen/d2"
-        android:paddingStart="@dimen/d20"
-        android:paddingEnd="@dimen/d20"
-        android:paddingTop="@dimen/d25"
-        android:paddingBottom="@dimen/d25"
-        android:background="?attr/d_white_25">
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/system_display"
-            android:text="@string/system_display"
-            android:textSize="@dimen/t18"
-            android:layout_marginBottom="@dimen/d5"
-            android:fontFamily="@font/bold"
-            android:textColor="?attr/d_grey"
-            android:layout_toStartOf="@id/se_system_display_switch"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/system_display_info"
-            android:layout_below="@id/system_display"
-            android:textSize="@dimen/t14"
-            android:fontFamily="@font/regular"
-            android:textColor="?attr/d_grey"
-            android:layout_toStartOf="@id/se_system_display_switch"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/d20"
+                android:paddingEnd="@dimen/d1"
+                android:layout_marginBottom="@dimen/d15"
+                android:text="@string/secret_code"
+                android:textSize="@dimen/t19"
+                android:fontFamily="@font/bold"
+                android:textColor="?attr/d_grey" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/se_system_display_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/d10"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/se_enable_disable_view"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/d20"
+                android:paddingEnd="@dimen/d20"
+                android:paddingTop="@dimen/d25"
+                android:paddingBottom="@dimen/d25"
+                android:layout_marginBottom="@dimen/d2"
+                android:background="@drawable/btn_white25">
 
-    </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/se_enable_disable_code"
+                    android:textSize="@dimen/t18"
+                    android:fontFamily="@font/bold"
+                    android:textColor="?attr/d_grey"
+                    android:layout_marginBottom="@dimen/d5"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/se_dark_mode_view"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/d20"
-        android:paddingEnd="@dimen/d20"
-        android:paddingTop="@dimen/d25"
-        android:paddingBottom="@dimen/d25"
-        android:background="?attr/d_white_25"
-        android:gravity="center_vertical"
-        android:visibility="gone">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/se_enable_disable_code_sub"
+                    android:textSize="@dimen/t14"
+                    android:fontFamily="@font/regular"
+                    android:textColor="?attr/d_grey" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/dark_mode"
-            android:textSize="@dimen/t18"
-            android:fontFamily="@font/bold"
-            android:textColor="?attr/d_grey" />
+            </LinearLayout>
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/se_dark_mode_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/d10"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/se_change_code"
+                android:paddingStart="@dimen/d20"
+                android:paddingEnd="@dimen/d20"
+                android:paddingTop="@dimen/d25"
+                android:paddingBottom="@dimen/d25"
+                android:textSize="@dimen/t18"
+                android:fontFamily="@font/bold"
+                android:textColor="?attr/d_grey"
+                android:background="@drawable/btn_white25"
+                android:visibility="gone"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/d20"
+                android:paddingEnd="@dimen/d1"
+                android:layout_marginTop="@dimen/d40"
+                android:layout_marginBottom="@dimen/d15"
+                android:text="@string/theme"
+                android:textSize="@dimen/t19"
+                android:fontFamily="@font/bold"
+                android:textColor="?attr/d_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/se_system_display_view"
+                android:layout_marginBottom="@dimen/d2"
+                android:paddingStart="@dimen/d20"
+                android:paddingEnd="@dimen/d20"
+                android:paddingTop="@dimen/d25"
+                android:paddingBottom="@dimen/d25"
+                android:background="?attr/d_white_25">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/system_display"
+                    android:text="@string/system_display"
+                    android:textSize="@dimen/t18"
+                    android:layout_marginBottom="@dimen/d5"
+                    android:fontFamily="@font/bold"
+                    android:textColor="?attr/d_grey"
+                    android:layout_toStartOf="@id/se_system_display_switch"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/system_display_info"
+                    android:layout_below="@id/system_display"
+                    android:textSize="@dimen/t14"
+                    android:fontFamily="@font/regular"
+                    android:textColor="?attr/d_grey"
+                    android:layout_toStartOf="@id/se_system_display_switch"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/se_system_display_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/d10"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/se_dark_mode_view"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/d20"
+                android:paddingEnd="@dimen/d20"
+                android:paddingTop="@dimen/d25"
+                android:paddingBottom="@dimen/d25"
+                android:background="?attr/d_white_25"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/dark_mode"
+                    android:textSize="@dimen/t18"
+                    android:fontFamily="@font/bold"
+                    android:textColor="?attr/d_grey" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/se_dark_mode_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/d10"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

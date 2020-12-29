@@ -3,6 +3,7 @@ package com.mynotes.utils
 import android.content.Context
 import android.content.SharedPreferences
 import com.mynotes.utils.Constants.Companion.PREF_DARK_MODE
+import com.mynotes.utils.Constants.Companion.PREF_ENABLE_SECRET_CODE
 import com.mynotes.utils.Constants.Companion.PREF_SECRET_CODE
 import com.mynotes.utils.Constants.Companion.PREF_SYS_THEME_CHANGES_APP_THEME
 
@@ -81,5 +82,16 @@ class Prefs {
         ed.putBoolean(PREF_SYS_THEME_CHANGES_APP_THEME, bool)
         ed.apply()
     }
+
+    fun isSecretCodeEnabled(): Boolean {
+        return sp.getBoolean(PREF_ENABLE_SECRET_CODE, true)
+    }
+
+    fun enableSecretCode(bool: Boolean){
+        ed.putBoolean(PREF_ENABLE_SECRET_CODE, bool)
+        ed.apply()
+    }
+
+
 
 }

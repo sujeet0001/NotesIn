@@ -34,6 +34,12 @@ class SecretCode : BaseActivity() {
             Prefs.get(applicationContext).setBool(Constants.PREF_FIRST_TIME_OPEN, true)
         }
 
+        if(!Prefs.get(applicationContext).isSecretCodeEnabled()){
+            goToHome()
+            finish()
+            return
+        }
+
         dot = getString(R.string.dot)
 
         pc_0.setOnClickListener { addChar("0") }
@@ -63,12 +69,16 @@ class SecretCode : BaseActivity() {
         pc_passcode.text.append(dot)
         code += ch
         if(code == Prefs.get(applicationContext).getSecretCode()){
-            startActivity(Intent(this, Home::class.java))
+            goToHome()
         }
     }
 
     override fun onRestart() {
         super.onRestart()
         recreateActivityOnThemeChange(this)
+    }
+
+    private fun goToHome(){
+        startActivity(Intent(this, Home::class.java))
     }
 }

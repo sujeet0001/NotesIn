@@ -2,8 +2,19 @@ package com.mynotes.utils
 
 class Constants {
     companion object {
+        // Other messages
         const val SECRET_CODE_CHANGED = "Your secret code is been successfully changed"
+        const val ENABLE_SECRET_CODE = "Enable secret code"
+        const val DISABLE_SECRET_CODE = "Disable secret code"
+        const val SET_SECRET_CODE = "Set your secret code"
+        const val CHANGE_SECRET_CODE = "Change your secret code"
+        const val ENABLE_SECRET_CODE_SUB = "Asks for secret code every time you open the app."
+        const val DISABLE_SECRET_CODE_SUB = "Never asks for secret code on opening the app."
+        const val SAME_AS_EXISTING_CODE = "The code you entered is same as your existing secret code, please set a different one."
+
+        // Intent extras
         const val FROM_HOME = "fromHome"
+        const val FROM_CHANGE_SECRET_CODE = "fromChangeSecretCode"
 
         // Dialog types
         const val TYPE_FIRST_TIME = 0
@@ -23,9 +34,11 @@ class Constants {
         // Preferences
         const val PREF_SECRET_CODE = "secretCode"
         const val PREF_FIRST_TIME_OPEN = "firstTimeOpen"
-        const val PREF_FIRST_TIME_ON_SECRET_CODE_SETTING = "firstTimeOnSecretCodeSetting"
+        const val PREF_NOT_FIRST_TIME_ON_SECRET_CODE_SETTING = "notFirstTimeOnSecretCodeSetting"
         const val PREF_DARK_MODE = "darkMode"
         const val PREF_SYS_THEME_CHANGES_APP_THEME = "sysThemeChangesAppTheme"
+        const val PREF_ENABLE_SECRET_CODE = "enableSecretCode"
+        const val PREF_SECRET_CODE_SET = "secretCodeSet"
 
     }
 }

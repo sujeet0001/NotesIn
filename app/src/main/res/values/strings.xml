@@ -1,9 +1,7 @@
 <resources>
     <string name="enter_secret_code">Enter your secret code</string>
     <string name="dot">⬤</string>
-    <string name="change_secret_code">Change your secret code</string>
-    <string name="enter_new_secret_code">Enter your new secret code</string>
-    <string name="reenter_new_secret_code">Re-enter your new secret code</string>
+    <string name="enter_new_secret_code">Enter your new secret code</string>/*    <string name="reenter_new_secret_code">Re-enter your new secret code</string>
     <string name="my_notes">My Notes</string>
     <string name="no_notes">No notes found!\n\nTap (+) icon to add a note</string>
     <string name="note_title">Note Title</string>
@@ -27,4 +25,6 @@
     <string name="system_display">System Display Theme</string>
     <string name="system_display_info">Your app theme changes\naccording to the system display theme.</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="secret_code">Secret Code</string>
+    <string name="theme">Theme</string>
 </resources>

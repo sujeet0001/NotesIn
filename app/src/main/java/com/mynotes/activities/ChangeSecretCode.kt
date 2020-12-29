@@ -27,6 +27,7 @@ class ChangeSecretCode : BaseActivity() {
     private var dot: String = ""
     private var tv: TextView? = null
     private var snack: Snackbar? = null
+    private var fromChangeCode: Boolean = false
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
@@ -37,17 +38,35 @@ class ChangeSecretCode : BaseActivity() {
         super.onCreate(savedInstanceState)
         setViewConfigs(resources.configuration, DisplayUtils.getTheme(applicationContext))
         setContentView(R.layout.change_secret_code)
+        setViews()
+        setClickListeners()
+    }
 
-        if(!Prefs.get(this).getBool(Constants.PREF_FIRST_TIME_ON_SECRET_CODE_SETTING)){
+    private fun setViews(){
+        if(!Prefs.get(this).getBool(Constants.PREF_NOT_FIRST_TIME_ON_SECRET_CODE_SETTING)){
             MyAlert(this, Constants.TYPE_FIRST_TIME_SECRET_CODE_SETTING,
                 Constants.MSG_SET_SECRET_CODE).show()
-            Prefs.get(this).setBool(Constants.PREF_FIRST_TIME_ON_SECRET_CODE_SETTING, true)
+            Prefs.get(this).setBool(Constants.PREF_NOT_FIRST_TIME_ON_SECRET_CODE_SETTING, true)
+        }
+
+        fromChangeCode = intent.getBooleanExtra(Constants.FROM_CHANGE_SECRET_CODE, false)
+        if(fromChangeCode){
+            if(Prefs.get(applicationContext).getBool(Constants.PREF_SECRET_CODE_SET)){
+                cp_title.text = Constants.CHANGE_SECRET_CODE
+            } else {
+                cp_title.text = Constants.SET_SECRET_CODE
+            }
+        } else {
+            if(Prefs.get(applicationContext).isSecretCodeEnabled()){
+                cp_title.text = Constants.DISABLE_SECRET_CODE
+            } else {
+                cp_title.text = Constants.ENABLE_SECRET_CODE
+            }
         }
 
         dot = getString(R.string.dot)
         tv = cp_old.eb_et
         cp_old.setBackgroundResource(R.drawable.view_selector)
-        setClickListeners()
     }
 
     private fun setClickListeners(){
@@ -75,19 +94,32 @@ class ChangeSecretCode : BaseActivity() {
         if (tv == cp_old.eb_et) {
             code += ch
             if (code == Prefs.get(applicationContext).getSecretCode()) {
-                cp_old.visibility = View.GONE
-                cp_old.startAnimation(
-                    AnimationUtils.loadAnimation(applicationContext, R.anim.out_top)
-                )
-                cp_newpasscode_lay.visibility = View.VISIBLE
-                cp_newpasscode_lay.startAnimation(
-                    AnimationUtils.loadAnimation(applicationContext, R.anim.in_bottom)
-                )
-                cp_new.eb_et.hint = resources.getText(R.string.enter_new_secret_code)
-                cp_newagain.eb_et.hint = resources.getText(R.string.reenter_new_secret_code)
-                highlightText(cp_new, cp_newagain, cp_new.eb_et)
-                code = ""
-                showSnack("Type in same codes in both the fields and make sure the code is of minimum 4 characters", 4000)
+                val msg: String
+                if(fromChangeCode){
+                    cp_old.visibility = View.GONE
+                    cp_old.startAnimation(
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.out_top)
+                    )
+                    cp_newpasscode_lay.visibility = View.VISIBLE
+                    cp_newpasscode_lay.startAnimation(
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.in_bottom)
+                    )
+                    cp_new.eb_et.hint = resources.getText(R.string.enter_new_secret_code)
+                    cp_newagain.eb_et.hint = resources.getText(R.string.reenter_new_secret_code)
+                    highlightText(cp_new, cp_newagain, cp_new.eb_et)
+                    code = ""
+                    msg = "Type in same codes in both the fields and make sure the code is of minimum 4 characters"
+                } else {
+                    msg = if(Prefs.get(applicationContext).isSecretCodeEnabled()){
+                        Prefs.get(applicationContext).enableSecretCode(false)
+                        "From now on you wont be asked to enter secret code while opening the app"
+                    } else {
+                        Prefs.get(applicationContext).enableSecretCode(true)
+                        "From now on you will be asked to enter secret code while opening the app"
+                    }
+                    Handler().postDelayed({ finish() }, 2500)
+                }
+                showSnack(msg, 4000)
             }
         } else if (tv == cp_new.eb_et) {
             code += ch
@@ -96,7 +128,11 @@ class ChangeSecretCode : BaseActivity() {
         }
 
         if (code == codeNew && code.length > 3) {
-            showSecretCodeSaveAlert()
+            if(code == Prefs.get(applicationContext).getSecretCode()){
+                showSnack(Constants.SAME_AS_EXISTING_CODE, 3000)
+            } else {
+                showSecretCodeSaveAlert()
+            }
         }
     }
 
@@ -116,7 +152,11 @@ class ChangeSecretCode : BaseActivity() {
                 }
             }
             if (code == codeNew && code.length > 3) {
-                showSecretCodeSaveAlert()
+                if(code == Prefs.get(applicationContext).getSecretCode()){
+                    showSnack(Constants.SAME_AS_EXISTING_CODE, 3000)
+                } else {
+                    showSecretCodeSaveAlert()
+                }
             }
         }
     }
@@ -147,9 +187,10 @@ class ChangeSecretCode : BaseActivity() {
             snack?.setAction("Yes") {
                 Prefs.get(applicationContext).setSecretCode(codeNew)
                 showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
+                Prefs.get(applicationContext).setBool(Constants.PREF_SECRET_CODE_SET, true)
                 Handler().postDelayed({
                     onBackPressed()
-                }, 2000)
+                }, 1500)
             }
             val btn = view.findViewById(R.id.snackbar_action) as Button
             btn.setBackgroundResource(R.drawable.rc_x_green)
