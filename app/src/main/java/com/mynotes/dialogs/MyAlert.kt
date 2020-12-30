@@ -27,7 +27,7 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
         super.onCreate(savedInstanceState)
         setUpDialog(R.drawable.rc_grey, closeOnBackPress = false, closeOnOutsideTouch = false)
 
-        if(type == Constants.TYPE_FIRST_TIME || type == Constants.TYPE_FIRST_TIME_SECRET_CODE_SETTING){
+        if(type == Constants.TYPE_FIRST_TIME || type == Constants.TYPE_SET_SECRET_CODE){
 
             setContentView(R.layout.first_time_alert)
             fta_close.setOnClickListener { dismiss() }
@@ -43,7 +43,7 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
             setContentView(R.layout.my_alert)
             ma_msg.text = msg
             when (type){
-                Constants.TYPE_FIRST_TIME_SECRET_CODE_SETTING -> {
+                Constants.TYPE_SET_SECRET_CODE -> {
                     ma_no.visibility = View.GONE
                 }
             }

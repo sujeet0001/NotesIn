@@ -91,7 +91,4 @@ class Prefs {
         ed.putBoolean(PREF_ENABLE_SECRET_CODE, bool)
         ed.apply()
     }
-
-
-
 }

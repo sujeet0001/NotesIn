@@ -7,7 +7,6 @@ import android.view.View
 import com.mynotes.R
 import com.mynotes.utils.BaseActivity
 import com.mynotes.utils.Constants
-import com.mynotes.utils.DisplayUtils
 import com.mynotes.utils.Prefs
 import kotlinx.android.synthetic.main.settings.*
 
@@ -51,7 +50,7 @@ class Settings : BaseActivity() {
         se_change_code.setOnClickListener {
             val intent = Intent(applicationContext, ChangeSecretCode::class.java)
             intent.putExtra(Constants.FROM_CHANGE_SECRET_CODE, true)
-            startActivity(intent)
+            startActivityForResult(intent, reqCode)
         }
 
         se_enable_disable_view.setOnClickListener {

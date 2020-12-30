@@ -42,22 +42,21 @@ class ChangeSecretCode : BaseActivity() {
         setClickListeners()
     }
 
-    private fun setViews(){
-        if(!Prefs.get(this).getBool(Constants.PREF_NOT_FIRST_TIME_ON_SECRET_CODE_SETTING)){
-            MyAlert(this, Constants.TYPE_FIRST_TIME_SECRET_CODE_SETTING,
-                Constants.MSG_SET_SECRET_CODE).show()
-            Prefs.get(this).setBool(Constants.PREF_NOT_FIRST_TIME_ON_SECRET_CODE_SETTING, true)
-        }
+    private fun setViews() {
 
         fromChangeCode = intent.getBooleanExtra(Constants.FROM_CHANGE_SECRET_CODE, false)
-        if(fromChangeCode){
-            if(Prefs.get(applicationContext).getBool(Constants.PREF_SECRET_CODE_SET)){
+        if (fromChangeCode) {
+            if (Prefs.get(applicationContext).getBool(Constants.PREF_SECRET_CODE_SET)) {
                 cp_title.text = Constants.CHANGE_SECRET_CODE
             } else {
                 cp_title.text = Constants.SET_SECRET_CODE
+                MyAlert(this, Constants.TYPE_SET_SECRET_CODE,
+                    Constants.MSG_SET_SECRET_CODE
+                ).show()
+
             }
         } else {
-            if(Prefs.get(applicationContext).isSecretCodeEnabled()){
+            if (Prefs.get(applicationContext).isSecretCodeEnabled()) {
                 cp_title.text = Constants.DISABLE_SECRET_CODE
             } else {
                 cp_title.text = Constants.ENABLE_SECRET_CODE
@@ -69,7 +68,7 @@ class ChangeSecretCode : BaseActivity() {
         cp_old.setBackgroundResource(R.drawable.view_selector)
     }
 
-    private fun setClickListeners(){
+    private fun setClickListeners() {
         cp_back.setOnClickListener { onBackPressed() }
         cp_0.setOnClickListener { addChar("0") }
         cp_1.setOnClickListener { addChar("1") }
@@ -95,7 +94,7 @@ class ChangeSecretCode : BaseActivity() {
             code += ch
             if (code == Prefs.get(applicationContext).getSecretCode()) {
                 val msg: String
-                if(fromChangeCode){
+                if (fromChangeCode) {
                     cp_old.visibility = View.GONE
                     cp_old.startAnimation(
                         AnimationUtils.loadAnimation(applicationContext, R.anim.out_top)
@@ -110,7 +109,7 @@ class ChangeSecretCode : BaseActivity() {
                     code = ""
                     msg = "Type in same codes in both the fields and make sure the code is of minimum 4 characters"
                 } else {
-                    msg = if(Prefs.get(applicationContext).isSecretCodeEnabled()){
+                    msg = if (Prefs.get(applicationContext).isSecretCodeEnabled()) {
                         Prefs.get(applicationContext).enableSecretCode(false)
                         "From now on you wont be asked to enter secret code while opening the app"
                     } else {
@@ -128,10 +127,10 @@ class ChangeSecretCode : BaseActivity() {
         }
 
         if (code == codeNew && code.length > 3) {
-            if(code == Prefs.get(applicationContext).getSecretCode()){
-                showSnack(Constants.SAME_AS_EXISTING_CODE, 3000)
-            } else {
+            if (code != Prefs.get(applicationContext).getSecretCode()) {
                 showSecretCodeSaveAlert()
+            } else {
+                showSnack(Constants.SAME_AS_EXISTING_CODE, 3000)
             }
         }
     }
@@ -152,7 +151,7 @@ class ChangeSecretCode : BaseActivity() {
                 }
             }
             if (code == codeNew && code.length > 3) {
-                if(code == Prefs.get(applicationContext).getSecretCode()){
+                if (code == Prefs.get(applicationContext).getSecretCode()) {
                     showSnack(Constants.SAME_AS_EXISTING_CODE, 3000)
                 } else {
                     showSecretCodeSaveAlert()
@@ -183,13 +182,14 @@ class ChangeSecretCode : BaseActivity() {
             tv.textSize = resources.getDimension(R.dimen.t9)
             tv.maxLines = 3
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
-            tv.setTextColor(ContextCompat.getColor(applicationContext, DisplayUtils.getToastTextColor(applicationContext)))
+            tv.setTextColor(ContextCompat.getColor(applicationContext,
+                    DisplayUtils.getToastTextColor(applicationContext)))
             snack?.setAction("Yes") {
                 Prefs.get(applicationContext).setSecretCode(codeNew)
                 showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
                 Prefs.get(applicationContext).setBool(Constants.PREF_SECRET_CODE_SET, true)
                 Handler().postDelayed({
-                    onBackPressed()
+                    finish()
                 }, 1500)
             }
             val btn = view.findViewById(R.id.snackbar_action) as Button
@@ -215,8 +215,8 @@ class ChangeSecretCode : BaseActivity() {
         }
     }
 
-    private fun dismissSnack(){
-        if(snack != null){
+    private fun dismissSnack() {
+        if (snack != null) {
             snack?.dismiss()
             snack = null
         }
