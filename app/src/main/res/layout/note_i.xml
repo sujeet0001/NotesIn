@@ -3,12 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/d15"
-    android:paddingBottom="@dimen/d15"
+    android:paddingTop="@dimen/d12"
+    android:paddingBottom="@dimen/d12"
     android:paddingStart="@dimen/d20"
     android:paddingEnd="@dimen/d20"
     android:background="@drawable/rc_white25"
-    android:layout_marginBottom="@dimen/d15">
+    android:layout_marginBottom="@dimen/d10">
 
     <TextView
         android:layout_width="match_parent"
@@ -19,13 +19,13 @@
         android:textColor="?attr/d_white"
         android:maxLines="2"
         android:ellipsize="end"
-        android:layout_marginBottom="@dimen/d2" />
+        android:layout_marginBottom="@dimen/d5" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/noi_content"
-        android:textSize="@dimen/t15"
+        android:textSize="@dimen/t14"
         android:textColor="?attr/d_white"
         android:fontFamily="@font/regular"
         android:maxLines="3"

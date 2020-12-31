@@ -28,7 +28,6 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
         setUpDialog(R.drawable.rc_grey, closeOnBackPress = false, closeOnOutsideTouch = false)
 
         if(type == Constants.TYPE_FIRST_TIME || type == Constants.TYPE_SET_SECRET_CODE){
-
             setContentView(R.layout.first_time_alert)
             fta_close.setOnClickListener { dismiss() }
             val str = SpannableString(msg)
@@ -39,7 +38,6 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
             fta_msg.text = str
 
         } else {
-
             setContentView(R.layout.my_alert)
             ma_msg.text = msg
             when (type){

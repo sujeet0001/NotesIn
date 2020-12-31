@@ -39,4 +39,8 @@ open class MyDialog(context: Context) : Dialog(context) {
         dismissDialog(closeOnBackPress, closeOnOutsideTouch)
     }
 
+    fun setMargins(){
+
+    }
+
 }

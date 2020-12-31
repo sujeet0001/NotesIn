@@ -18,8 +18,7 @@ class Note : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setViewConfigs(resources.configuration)
-        setContentView(R.layout.note)
+        setViewConfigs(resources.configuration, R.layout.note)
         setViews()
         setClickListeners()
         val db = NotesDB.getNotesDB(applicationContext)

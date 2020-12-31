@@ -36,8 +36,7 @@ class ChangeSecretCode : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setViewConfigs(resources.configuration)
-        setContentView(R.layout.change_secret_code)
+        setViewConfigs(resources.configuration, R.layout.change_secret_code)
         setViews()
         setClickListeners()
     }

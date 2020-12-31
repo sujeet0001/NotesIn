@@ -60,6 +60,8 @@
             android:id="@+id/no_save"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/d15"
+            android:paddingBottom="@dimen/d15"
             android:layout_weight="1"
             android:background="@drawable/rc_green"
             android:fontFamily="@font/bold"

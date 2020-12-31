@@ -21,8 +21,7 @@ class Settings : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setViewConfigs(resources.configuration)
-        setContentView(R.layout.settings)
+        setViewConfigs(resources.configuration, R.layout.settings)
         setViews()
         setClickListeners()
     }

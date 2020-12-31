@@ -17,9 +17,9 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="@dimen/d20"
-        android:paddingTop="@dimen/d15"
+        android:paddingTop="@dimen/d10"
         android:paddingEnd="@dimen/d10"
-        android:paddingBottom="@dimen/d15"
+        android:paddingBottom="@dimen/d10"
         android:background="@drawable/rc_white70"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/ho_list"
-        android:layout_marginTop="@dimen/d15"
+        android:layout_marginTop="@dimen/d10"
         tools:listitem="@layout/note_i"
         android:layout_below="@id/ho_lay"/>
 
