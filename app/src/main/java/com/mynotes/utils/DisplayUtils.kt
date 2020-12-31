@@ -21,24 +21,12 @@ class DisplayUtils {
 
         fun getToastTextSize(context: Context): Float {
             return when (getDensityName(context)) {
-                "sw720" -> {
-                    30f
-                }
-                "sw600" -> {
-                    26f
-                }
-                "xxhdpi", "xxxhdpi" -> {
-                    22f
-                }
-                "xhdpi" -> {
-                    19f
-                }
-                "hdpi" -> {
-                    14f
-                }
-                else -> {
-                    16f
-                }
+                "sw720" -> { 30f }
+                "sw600" -> { 26f }
+                "xxhdpi", "xxxhdpi" -> { 22f }
+                "xhdpi" -> { 19f }
+                "hdpi" -> { 14f }
+                else -> { 16f }
             }
         }
 

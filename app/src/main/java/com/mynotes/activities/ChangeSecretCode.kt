@@ -4,19 +4,14 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
 import com.mynotes.dialogs.MyAlert
 import com.mynotes.utils.BaseActivity
 import com.mynotes.utils.Constants
 import com.mynotes.utils.Prefs
-import com.mynotes.utils.DisplayUtils
 import kotlinx.android.synthetic.main.change_secret_code.*
 import kotlinx.android.synthetic.main.edittext_backspace.view.*
 
@@ -167,52 +162,15 @@ class ChangeSecretCode : BaseActivity() {
     }
 
     private fun showSecretCodeSaveAlert() {
-        snack = Snackbar.make(window.decorView.rootView, "Codes matched, want to save it?", 5000)
-        snack?.apply {
-            val view = snack?.view
-            view?.setPadding(
-                resources.getDimension(R.dimen.d10).toInt(),
-                resources.getDimension(R.dimen.d10).toInt(),
-                resources.getDimension(R.dimen.d15).toInt(),
-                resources.getDimension(R.dimen.d10).toInt()
-            )
-            view?.setBackgroundResource(R.drawable.rc_grey)
-            val tv = view?.findViewById(R.id.snackbar_text) as TextView
-            val textSize = DisplayUtils.getToastTextSize(applicationContext)
-            tv.textSize = textSize
-            tv.maxLines = 3
-            tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
-            tv.setTextColor(ContextCompat.getColor(applicationContext,
-                    DisplayUtils.getToastTextColor(applicationContext)))
-            snack?.setAction("Yes") {
-                Prefs.get(applicationContext).setSecretCode(codeNew)
-                showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
-                Prefs.get(applicationContext).setBool(Constants.PREF_SECRET_CODE_SET, true)
-                Handler().postDelayed({
-                    finish()
-                }, 1500)
-            }
-            val btn = view.findViewById(R.id.snackbar_action) as Button
-            btn.setBackgroundResource(R.drawable.rc_x_green)
-            btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
-            btn.textSize = textSize
-            btn.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
-            btn.isAllCaps = false
-            btn.setPadding(
-                resources.getDimension(R.dimen.d20).toInt(), 0,
-                resources.getDimension(R.dimen.d20).toInt(), 0
-            )
-            (this.view.layoutParams as ViewGroup.MarginLayoutParams)
-                .apply {
-                    setMargins(
-                        resources.getDimension(R.dimen.d20).toInt(),
-                        0,
-                        resources.getDimension(R.dimen.d20).toInt(),
-                        resources.getDimension(R.dimen.d70).toInt()
-                    )
-                }
-            show()
-        }
+        snack = getSnackWithButton("Codes matched, want to save it?", 5000)
+        snack?.setAction("Yes") {
+            Prefs.get(applicationContext).setSecretCode(codeNew)
+            showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
+            Prefs.get(applicationContext).setBool(Constants.PREF_SECRET_CODE_SET, true)
+            Handler().postDelayed({
+                finish()
+            }, 1500)
+        }?.show()
     }
 
     private fun dismissSnack() {
