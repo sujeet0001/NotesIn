@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="?attr/d_x_black"
+    android:background="?attr/d_black"
     android:splitMotionEvents="false"
     tools:context=".activities.Settings">
 
@@ -145,6 +145,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    app:thumbTint="?attr/d_grey"
+                    app:trackTint="?attr/d_black"
                     android:layout_marginStart="@dimen/d10"/>
 
             </RelativeLayout>
@@ -175,6 +177,8 @@
                     android:id="@+id/se_dark_mode_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:thumbTint="?attr/d_grey"
+                    app:trackTint="?attr/d_black"
                     android:layout_marginStart="@dimen/d10"/>
 
             </LinearLayout>

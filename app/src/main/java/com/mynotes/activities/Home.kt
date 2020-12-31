@@ -33,6 +33,18 @@ class Home : BaseActivity() {
 
         initList()
 
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+        notes.add(NoteI("iwhfihfwhfhhf", "dsugsuyfgsfssa dhipiu dhaiuhahdhd alihdaihd"))
+
+
         checkForNotesAvailability()
     }
 
