@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="density">sw600</string>
+
     <dimen name="d_10">-12dp</dimen>
     <dimen name="d0_5">0.6dp</dimen>
     <dimen name="d1">1.2dp</dimen>

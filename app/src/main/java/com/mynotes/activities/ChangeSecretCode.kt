@@ -178,7 +178,8 @@ class ChangeSecretCode : BaseActivity() {
             )
             view?.setBackgroundResource(R.drawable.rc_grey)
             val tv = view?.findViewById(R.id.snackbar_text) as TextView
-            tv.textSize = resources.getDimension(R.dimen.t9)
+            val textSize = DisplayUtils.getToastTextSize(applicationContext)
+            tv.textSize = textSize
             tv.maxLines = 3
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
             tv.setTextColor(ContextCompat.getColor(applicationContext,
@@ -194,7 +195,7 @@ class ChangeSecretCode : BaseActivity() {
             val btn = view.findViewById(R.id.snackbar_action) as Button
             btn.setBackgroundResource(R.drawable.rc_x_green)
             btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
-            btn.textSize = resources.getDimension(R.dimen.t9)
+            btn.textSize = textSize
             btn.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
             btn.isAllCaps = false
             btn.setPadding(

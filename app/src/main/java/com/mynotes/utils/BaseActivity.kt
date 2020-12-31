@@ -2,6 +2,7 @@ package com.mynotes.utils
 
 import android.content.res.Configuration
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -12,14 +13,15 @@ import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
 
-open class BaseActivity: AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     var currentTheme: Int = 0
 
-    fun setViewConfigs(configuration: Configuration){
+    fun setViewConfigs(configuration: Configuration, layoutId: Int) {
         this.currentTheme = DisplayUtils.getTheme(applicationContext)
         setTheme(this.currentTheme)
         adjustFontScale(configuration)
+        setContentView(layoutId)
     }
 
     private fun adjustFontScale(configuration: Configuration) {
@@ -41,23 +43,27 @@ open class BaseActivity: AppCompatActivity() {
                 resources.getDimension(R.dimen.d10).toInt())
             view.setBackgroundResource(R.drawable.rc_grey)
             val tv = view.findViewById(R.id.snackbar_text) as TextView
-            tv.textSize = resources.getDimension(R.dimen.t9)
+
+
+            tv.textSize = DisplayUtils.getToastTextSize(applicationContext)
             tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
             tv.textAlignment = View.TEXT_ALIGNMENT_CENTER
             tv.maxLines = 10
-            tv.setTextColor(ContextCompat.getColor(applicationContext, DisplayUtils.getToastTextColor(applicationContext)))
+            tv.setTextColor(ContextCompat.getColor(applicationContext,
+                DisplayUtils.getToastTextColor(applicationContext)))
             (this.view.layoutParams as ViewGroup.MarginLayoutParams)
-                .apply { setMargins(resources.getDimension(R.dimen.d20).toInt(),
-                    0,
-                    resources.getDimension(R.dimen.d20).toInt(),
-                    resources.getDimension(R.dimen.d70).toInt())
+                .apply {
+                    setMargins(resources.getDimension(R.dimen.d20).toInt(),
+                        0,
+                        resources.getDimension(R.dimen.d20).toInt(),
+                        resources.getDimension(R.dimen.d70).toInt())
                 }
             show()
         }
     }
 
-    fun recreateActivityOnThemeChange(activity: BaseActivity){
-        if(DisplayUtils.getTheme(applicationContext) != currentTheme){
+    fun recreateActivityOnThemeChange(activity: BaseActivity) {
+        if (DisplayUtils.getTheme(applicationContext) != currentTheme) {
             currentTheme = DisplayUtils.getTheme(applicationContext)
             Handler().postDelayed({
                 activity.recreate()

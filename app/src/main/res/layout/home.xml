@@ -8,6 +8,7 @@
     android:paddingStart="@dimen/d15"
     android:paddingEnd="@dimen/d15"
     android:paddingTop="@dimen/d15"
+    android:splitMotionEvents="false"
     tools:context=".activities.Home">
 
     <LinearLayout

@@ -7,12 +7,8 @@ import android.text.Editable
 import android.util.Log
 import com.mynotes.R
 import com.mynotes.dialogs.MyAlert
-import com.mynotes.utils.BaseActivity
-import com.mynotes.utils.Constants
-import com.mynotes.utils.DisplayUtils
-import com.mynotes.utils.Prefs
+import com.mynotes.utils.*
 import kotlinx.android.synthetic.main.secret_code.*
-
 
 class SecretCode : BaseActivity() {
 

@@ -9,11 +9,35 @@ class DisplayUtils {
     companion object {
 
         fun getToastTextColor(context: Context): Int {
-            return when(getTheme(context)){
+            return when (getTheme(context)) {
                 R.style.AppThemeDark -> {
                     R.color.black
-                } else -> {
+                }
+                else -> {
                     R.color.grey
+                }
+            }
+        }
+
+        fun getToastTextSize(context: Context): Float {
+            return when (getDensityName(context)) {
+                "sw720" -> {
+                    30f
+                }
+                "sw600" -> {
+                    26f
+                }
+                "xxhdpi", "xxxhdpi" -> {
+                    22f
+                }
+                "xhdpi" -> {
+                    19f
+                }
+                "hdpi" -> {
+                    14f
+                }
+                else -> {
+                    16f
                 }
             }
         }
@@ -36,6 +60,10 @@ class DisplayUtils {
                     R.style.AppThemeLight
                 }
             }
+        }
+
+        fun getDensityName(context: Context): String {
+            return context.resources.getString(R.string.density)
         }
     }
 }
