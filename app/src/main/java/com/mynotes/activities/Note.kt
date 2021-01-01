@@ -2,6 +2,7 @@ package com.mynotes.activities
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.View
 import com.mynotes.R
 import com.mynotes.utils.BaseActivity
 import com.mynotes.utils.Constants
@@ -9,6 +10,8 @@ import com.mynotes.utils.NotesDB
 import kotlinx.android.synthetic.main.note.*
 
 class Note : BaseActivity() {
+
+    var isFromHome: Boolean = false
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
@@ -24,8 +27,12 @@ class Note : BaseActivity() {
     }
 
     private fun setViews(){
-        if(intent.getBooleanExtra(Constants.FROM_HOME, false)){
+        isFromHome = intent.getBooleanExtra(Constants.FROM_HOME, false)
+        if(isFromHome){
             no_title.requestFocus()
+        } else {
+            no_delete.visibility = View.VISIBLE
+            no_save.text = Constants.UPDATE
         }
     }
 

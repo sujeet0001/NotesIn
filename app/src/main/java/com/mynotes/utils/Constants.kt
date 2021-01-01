@@ -12,6 +12,7 @@ class Constants {
         const val ENABLE_SECRET_CODE_SUB = "Asks for secret code every time you open the app."
         const val DISABLE_SECRET_CODE_SUB = "Never asks for secret code on opening the app."
         const val SAME_AS_EXISTING_CODE = "The code you entered is same as your existing secret code, please set a different one."
+        const val UPDATE = "Update"
 
         // Intent extras
         const val FROM_HOME = "0"
