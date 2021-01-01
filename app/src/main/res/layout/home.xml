@@ -7,7 +7,7 @@
     android:background="?attr/d_black"
     android:paddingStart="@dimen/d15"
     android:paddingEnd="@dimen/d15"
-    android:paddingTop="@dimen/d15"
+    android:paddingTop="@dimen/d10"
     android:splitMotionEvents="false"
     tools:context=".activities.Home">
 
@@ -30,7 +30,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/bold"
             android:text="@string/my_notes"
-            android:textColor="?attr/d_x_black"
+            android:textColor="?attr/d_black"
             android:textSize="@dimen/t25" />
 
         <ImageButton

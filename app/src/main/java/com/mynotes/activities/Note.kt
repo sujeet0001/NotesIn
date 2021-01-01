@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.mynotes.R
 import com.mynotes.utils.BaseActivity
 import com.mynotes.utils.Constants
-import com.mynotes.utils.DisplayUtils
 import com.mynotes.utils.NotesDB
 import kotlinx.android.synthetic.main.note.*
 
@@ -21,7 +20,7 @@ class Note : BaseActivity() {
         setViewConfigs(resources.configuration, R.layout.note)
         setViews()
         setClickListeners()
-        val db = NotesDB.getNotesDB(applicationContext)
+        val db = NotesDB.get(applicationContext)
     }
 
     private fun setViews(){

@@ -13,11 +13,10 @@ abstract class NotesDB : RoomDatabase() {
     companion object {
         private var INSTANCE: NotesDB? = null
 
-        fun getNotesDB(context: Context): NotesDB? {
+        fun get(context: Context): NotesDB? {
             if (INSTANCE == null) {
                 synchronized(NotesDB::class) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
+                    INSTANCE = Room.databaseBuilder(context.applicationContext,
                         NotesDB::class.java,
                         "notesTable"
                     ).build()

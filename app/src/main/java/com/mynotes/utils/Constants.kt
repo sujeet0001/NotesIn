@@ -14,8 +14,8 @@ class Constants {
         const val SAME_AS_EXISTING_CODE = "The code you entered is same as your existing secret code, please set a different one."
 
         // Intent extras
-        const val FROM_HOME = "fromHome"
-        const val FROM_CHANGE_SECRET_CODE = "fromChangeSecretCode"
+        const val FROM_HOME = "0"
+        const val FROM_CHANGE_SECRET_CODE = "1"
 
         // Dialog types
         const val TYPE_FIRST_TIME = 0
@@ -33,12 +33,12 @@ class Constants {
                 "While setting the secret code make sure it is of minimum 4 characters and maximum of 15 characters."
 
         // Preferences
-        const val PREF_SECRET_CODE = "secretCode"
-        const val PREF_FIRST_TIME_OPEN = "firstTimeOpen"
-        const val PREF_DARK_MODE = "darkMode"
-        const val PREF_SYS_THEME_CHANGES_APP_THEME = "sysThemeChangesAppTheme"
-        const val PREF_ENABLE_SECRET_CODE = "enableSecretCode"
-        const val PREF_SECRET_CODE_SET = "secretCodeSet"
+        const val PREF_SECRET_CODE = "0"
+        const val PREF_FIRST_TIME_OPEN = "1"
+        const val PREF_DARK_MODE = "2"
+        const val PREF_SYS_THEME_CHANGES_APP_THEME = "3"
+        const val PREF_ENABLE_SECRET_CODE = "4"
+        const val PREF_SECRET_CODE_SET = "5"
 
     }
 }
