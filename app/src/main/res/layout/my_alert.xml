@@ -5,6 +5,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:splitMotionEvents="false"
+    android:background="@drawable/rc_grey"
+    android:layout_margin="@dimen/d10"
     android:padding="@dimen/d20">
 
     <ImageButton

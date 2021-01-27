@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
+import android.view.Window
+import android.view.WindowManager
 import com.mynotes.R
 import com.mynotes.activities.Note
 import com.mynotes.utils.Constants
@@ -18,7 +20,7 @@ class MyAlert(context: Context, private var type: Int, private var msg: String) 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setUpDialog(R.drawable.rc_grey, closeOnBackPress = false, closeOnOutsideTouch = false)
+        setUpDialog(R.color.trans, closeOnBackPress = false, closeOnOutsideTouch = false)
 
         if(type == Constants.TYPE_FIRST_TIME || type == Constants.TYPE_SET_SECRET_CODE){
             setContentView(R.layout.first_time_alert)
