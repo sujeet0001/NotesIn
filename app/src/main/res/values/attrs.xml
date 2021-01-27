@@ -11,6 +11,8 @@
         <attr name="d_white" format="color"/>
         <attr name="d_red" format="color"/>
         <attr name="d_green" format="color"/>
+        <attr name="d_x_red" format="color"/>
+        <attr name="d_x_green" format="color"/>
         <attr name="d_x_black" format="color"/>
         <attr name="d_x_grey" format="color"/>
         <attr name="d_x_white_25" format="color"/>

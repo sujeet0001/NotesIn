@@ -19,6 +19,8 @@
         <item name="d_x_grey">@color/grey</item>
         <item name="d_x_white_25">@color/d_white_25</item>
         <item name="d_white_10">@color/d_white_10</item>
+        <item name="d_x_green">@color/l_green</item>
+        <item name="d_x_red">@color/l_red</item>
 
     </style>
 
@@ -41,6 +43,8 @@
         <item name="d_x_grey">@color/black</item>
         <item name="d_x_white_25">@color/l_black_40</item>
         <item name="d_white_10">@color/l_white_10</item>
+        <item name="d_x_green">@color/d_green</item>
+        <item name="d_x_red">@color/d_red</item>
     </style>
 
 </resources>

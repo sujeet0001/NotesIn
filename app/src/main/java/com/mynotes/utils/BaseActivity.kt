@@ -79,7 +79,7 @@ open class BaseActivity : AppCompatActivity() {
 
     private fun setSnackButtonView(view: View, textSize: Float) {
         val btn = view.findViewById(R.id.snackbar_action) as Button
-        btn.setBackgroundResource(R.drawable.rc_x_green)
+        btn.setBackgroundResource(R.drawable.rc_green_l)
         btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
         btn.textSize = textSize
         btn.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
