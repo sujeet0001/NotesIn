@@ -88,7 +88,6 @@ class Home : BaseActivity() {
             notesAdapter.notifyDataSetChanged()
             checkForNotesAvailability()
         }
-
     }
 
     override fun onDestroy() {

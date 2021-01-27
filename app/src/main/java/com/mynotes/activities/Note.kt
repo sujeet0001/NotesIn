@@ -2,8 +2,6 @@ package com.mynotes.activities
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import com.mynotes.R
@@ -14,7 +12,10 @@ import com.mynotes.utils.BaseActivity
 import com.mynotes.utils.Constants
 import com.mynotes.utils.NotesDB
 import kotlinx.android.synthetic.main.note.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 class Note : BaseActivity(){
 
@@ -85,24 +86,18 @@ class Note : BaseActivity(){
         scope = CoroutineScope(Dispatchers.Main)
         scope?.launch {
             val db = NotesDB.get(applicationContext)?.notesDao()
-            var msg = ""
             when (action){
                 addNote -> {
                     noteI.let { db?.addNote(it) }
-                    msg = Constants.NOTE_ADDED
                 }
                 updateNote -> {
                     noteI.let { db?.updateNote(noteI) }
-                    msg = Constants.NOTE_UPDATED
                 }
                 deleteNote -> {
                     noteI.let { db?.deleteNote(it.id) }
-                    msg = Constants.NOTE_DELETED
                 }
             }
             progressCircle.dismiss()
-            showSnack(msg, 2000)
-            delay(2000)
             finish()
         }
     }
