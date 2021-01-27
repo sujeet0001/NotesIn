@@ -5,23 +5,16 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
-import android.view.View
 import com.mynotes.R
+import com.mynotes.activities.Note
 import com.mynotes.utils.Constants
 import com.mynotes.utils.MyDialog
 import kotlinx.android.synthetic.main.first_time_alert.*
 import kotlinx.android.synthetic.main.my_alert.*
 
-class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
+class MyAlert(context: Context, private var type: Int, private var msg: String) : MyDialog(context) {
 
-    private var type: Int = -1
-    private var msg: String = ""
-    private var ctx: Context = context
-
-    init {
-        this.type = type
-        this.msg = msg
-    }
+    private val ctx: Context = context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,27 +33,21 @@ class MyAlert(context: Context, type: Int, msg: String) : MyDialog(context) {
         } else {
             setContentView(R.layout.my_alert)
             ma_msg.text = msg
-            when (type){
-                Constants.TYPE_SET_SECRET_CODE -> {
-                    ma_no.visibility = View.GONE
-                }
-            }
             setClickListeners()
         }
     }
 
     private fun setClickListeners(){
-        ma_yes.setOnClickListener{
-
+        ma_yes.setOnClickListener {
             when (type){
-
-
-
+                Constants.TYPE_DELETE_NOTE -> {
+                    val note = ctx as Note
+                    note.noteI?.let { it1 -> note.actionOnNote(2, it1) }
+                }
                 else -> dismiss()
             }
-
+            dismiss()
         }
-
         ma_no.setOnClickListener { dismiss() }
         ma_close.setOnClickListener{ dismiss() }
     }

@@ -13,6 +13,12 @@ class Constants {
         const val DISABLE_SECRET_CODE_SUB = "Never asks for secret code on opening the app."
         const val SAME_AS_EXISTING_CODE = "The code you entered is same as your existing secret code, please set a different one."
         const val UPDATE = "Update"
+        const val TITLE_EMPTY = "Note title can't be empty"
+        const val CONTENT_EMPTY = "Note content can't be empty"
+        const val TITLE_CONTENT_EMPTY = "Note title and its content can't be empty"
+        const val NOTE_ADDED = "Your note has been successfully added"
+        const val NOTE_DELETED = "Your note has been successfully deleted"
+        const val NOTE_UPDATED = "Your note has been successfully updated"
 
         // Intent extras
         const val FROM_HOME = "0"
@@ -32,6 +38,7 @@ class Constants {
                 "You will find an option to change the security code in the settings page."
         const val MSG_SET_SECRET_CODE = "Set your secret code here.\n\nType in the existing default secret code to continue.\n\n"+
                 "While setting the secret code make sure it is of minimum 4 characters and maximum of 15 characters."
+        const val MSG_DELETE_NOTE = "Are you sure you want to delete the note?"
 
         // Preferences
         const val PREF_SECRET_CODE = "0"

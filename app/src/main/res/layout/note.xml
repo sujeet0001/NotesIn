@@ -22,21 +22,9 @@
         android:paddingTop="@dimen/d15"
         android:paddingEnd="@dimen/d20"
         android:paddingBottom="@dimen/d15"
-        android:layout_toStartOf="@id/no_delete"
         android:textColor="?attr/d_grey"
         android:textColorHint="?attr/d_x_white_25"
         android:textSize="@dimen/t18" />
-
-    <ImageButton
-        android:id="@+id/no_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/d12"
-        android:visibility="gone"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="@dimen/d15"
-        android:background="@drawable/btn_rc_white70"
-        app:srcCompat="@drawable/delete" />
 
     <EditText
         android:id="@+id/no_content"
@@ -74,10 +62,23 @@
         android:paddingTop="@dimen/d15"
         android:paddingBottom="@dimen/d15"
         android:text="@string/save"
-        android:layout_toRightOf="@id/no_back"
+        android:layout_toEndOf="@id/no_back"
+        android:layout_toStartOf="@id/no_delete"
         android:layout_alignParentBottom="true"
         android:textAllCaps="false"
         android:textColor="?attr/d_black"
         android:textSize="@dimen/t18" />
+
+    <ImageButton
+        android:id="@+id/no_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/d12"
+        android:visibility="gone"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/d15"
+        android:background="@drawable/btn_rc_red"
+        app:srcCompat="@drawable/delete" />
 
 </RelativeLayout>

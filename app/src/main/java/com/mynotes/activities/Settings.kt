@@ -47,15 +47,11 @@ class Settings : BaseActivity() {
     private fun setClickListeners() {
         se_back.setOnClickListener { onBackPressed() }
         se_change_code.setOnClickListener {
-            val intent = Intent(applicationContext, ChangeSecretCode::class.java)
-            intent.putExtra(Constants.FROM_CHANGE_SECRET_CODE, true)
-            startActivityForResult(intent, reqCode)
+            goToSecretCode(true)
         }
 
         se_enable_disable_view.setOnClickListener {
-            val intent = Intent(applicationContext, ChangeSecretCode::class.java)
-            intent.putExtra(Constants.FROM_CHANGE_SECRET_CODE, false)
-            startActivityForResult(intent, reqCode)
+            goToSecretCode(false)
         }
 
         se_system_display_switch.setOnCheckedChangeListener { _, isChecked ->
@@ -101,6 +97,12 @@ class Settings : BaseActivity() {
             se_enable_disable_code_sub.text = Constants.ENABLE_SECRET_CODE_SUB
             se_change_code.visibility = View.GONE
         }
+    }
+
+    private fun goToSecretCode(fromChangeSecretCode: Boolean){
+        val intent = Intent(applicationContext, ChangeSecretCode::class.java)
+        intent.putExtra(Constants.FROM_CHANGE_SECRET_CODE, fromChangeSecretCode)
+        startActivityForResult(intent, reqCode)
     }
 
 }

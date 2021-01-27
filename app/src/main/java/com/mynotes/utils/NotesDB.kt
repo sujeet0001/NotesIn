@@ -8,17 +8,17 @@ import com.mynotes.models.NoteI
 
 @Database(entities = [NoteI::class], version = 1)
 abstract class NotesDB : RoomDatabase() {
+
     abstract fun notesDao(): NotesDao
 
     companion object {
-        private var INSTANCE: NotesDB? = null
-
+        @Volatile private var INSTANCE: NotesDB? = null
         fun get(context: Context): NotesDB? {
             if (INSTANCE == null) {
                 synchronized(NotesDB::class) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
                         NotesDB::class.java,
-                        "notesTable"
+                        "notesDB"
                     ).build()
                 }
             }

@@ -1,7 +1,8 @@
 <resources>
     <string name="enter_secret_code">Enter your secret code</string>
     <string name="dot">⬤</string>
-    <string name="enter_new_secret_code">Enter your new secret code</string>/*    <string name="reenter_new_secret_code">Re-enter your new secret code</string>
+    <string name="enter_new_secret_code">Enter your new secret code</string>/*
+    <string name="reenter_new_secret_code">Re-enter your new secret code</string>
     <string name="my_notes">My Notes</string>
     <string name="no_notes">No notes found!\n\nTap (+) icon to add a note</string>
     <string name="note_title">Note Title</string>

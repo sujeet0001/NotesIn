@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeDark">
-        <activity android:name=".activities.Settings"
+        <activity android:name=".activities.Coroutines"/>
+
+        <activity
+            android:name=".activities.Settings"
             android:configChanges="uiMode"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Note"
             android:configChanges="uiMode"
@@ -31,7 +34,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

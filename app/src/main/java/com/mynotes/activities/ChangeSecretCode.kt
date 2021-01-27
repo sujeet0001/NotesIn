@@ -105,12 +105,12 @@ class ChangeSecretCode : BaseActivity() {
                 } else {
                     msg = if (Prefs.get(applicationContext).isSecretCodeEnabled()) {
                         Prefs.get(applicationContext).enableSecretCode(false)
-                        "From now on you wont be asked to enter secret code while opening the app"
+                        "From now on you won't be asked to enter secret code while opening the app"
                     } else {
                         Prefs.get(applicationContext).enableSecretCode(true)
                         "From now on you will be asked to enter secret code while opening the app"
                     }
-                    Handler().postDelayed({ finish() }, 4000)
+                    Handler().postDelayed({ finish() }, 3500)
                 }
                 showSnack(msg, 4000)
             }
