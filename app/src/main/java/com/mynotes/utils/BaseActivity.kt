@@ -93,9 +93,7 @@ open class BaseActivity : AppCompatActivity() {
     fun recreateActivityOnThemeChange(activity: BaseActivity) {
         if (DisplayUtils.getTheme(applicationContext) != currentTheme) {
             currentTheme = DisplayUtils.getTheme(applicationContext)
-            Handler().postDelayed({
-                activity.recreate()
-            }, 50)
+            activity.recreate()
         }
     }
 }

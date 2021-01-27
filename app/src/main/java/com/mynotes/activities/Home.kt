@@ -82,6 +82,7 @@ class Home : BaseActivity() {
         }
         scope?.launch {
             notes.addAll(NotesDB.get(applicationContext)?.notesDao()?.getAllNotes() as ArrayList)
+            notes.reverse()
             if(progressCircle != null && progressCircle?.isShowing == true){
                 progressCircle?.dismiss()
             }
