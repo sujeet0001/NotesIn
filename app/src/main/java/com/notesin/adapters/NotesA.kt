@@ -1,4 +1,4 @@
-package com.mynotes.adapters
+package com.notesin.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mynotes.R
-import com.mynotes.activities.Home
-import com.mynotes.models.NoteI
+import com.notesin.R
+import com.notesin.activities.Home
+import com.notesin.models.NoteI
 
 class NotesA(private val context: Context, private val notes: ArrayList<NoteI>): RecyclerView.Adapter<NotesA.NotesH>() {
 

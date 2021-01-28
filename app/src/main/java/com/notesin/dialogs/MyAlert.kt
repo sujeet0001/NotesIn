@@ -1,16 +1,14 @@
-package com.mynotes.dialogs
+package com.notesin.dialogs
 
 import android.content.Context
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
-import android.view.Window
-import android.view.WindowManager
-import com.mynotes.R
-import com.mynotes.activities.Note
-import com.mynotes.utils.Constants
-import com.mynotes.utils.MyDialog
+import com.notesin.R
+import com.notesin.activities.Note
+import com.notesin.utils.Constants
+import com.notesin.utils.MyDialog
 import kotlinx.android.synthetic.main.first_time_alert.*
 import kotlinx.android.synthetic.main.my_alert.*
 

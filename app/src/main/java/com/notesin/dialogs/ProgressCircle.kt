@@ -1,9 +1,9 @@
-package com.mynotes.dialogs
+package com.notesin.dialogs
 
 import android.content.Context
 import android.os.Bundle
-import com.mynotes.R
-import com.mynotes.utils.MyDialog
+import com.notesin.R
+import com.notesin.utils.MyDialog
 
 class ProgressCircle(context: Context): MyDialog(context) {
 

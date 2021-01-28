@@ -1,10 +1,10 @@
-package com.mynotes.utils
+package com.notesin.utils
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.mynotes.models.NoteI
+import com.notesin.models.NoteI
 
 @Database(entities = [NoteI::class], version = 1)
 abstract class NotesDB : RoomDatabase() {

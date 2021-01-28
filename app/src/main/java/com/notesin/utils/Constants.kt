@@ -1,4 +1,4 @@
-package com.mynotes.utils
+package com.notesin.utils
 
 class Constants {
     companion object {

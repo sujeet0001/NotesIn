@@ -1,17 +1,17 @@
-package com.mynotes.activities
+package com.notesin.activities
 
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mynotes.R
-import com.mynotes.adapters.NotesA
-import com.mynotes.dialogs.ProgressCircle
-import com.mynotes.models.NoteI
-import com.mynotes.utils.BaseActivity
-import com.mynotes.utils.Constants
-import com.mynotes.utils.NotesDB
+import com.notesin.R
+import com.notesin.adapters.NotesA
+import com.notesin.dialogs.ProgressCircle
+import com.notesin.models.NoteI
+import com.notesin.utils.BaseActivity
+import com.notesin.utils.Constants
+import com.notesin.utils.NotesDB
 import kotlinx.android.synthetic.main.home.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

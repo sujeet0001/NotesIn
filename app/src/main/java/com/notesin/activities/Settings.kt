@@ -1,13 +1,13 @@
-package com.mynotes.activities
+package com.notesin.activities
 
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
-import com.mynotes.R
-import com.mynotes.utils.BaseActivity
-import com.mynotes.utils.Constants
-import com.mynotes.utils.Prefs
+import com.notesin.R
+import com.notesin.utils.BaseActivity
+import com.notesin.utils.Constants
+import com.notesin.utils.Prefs
 import kotlinx.android.synthetic.main.settings.*
 
 class Settings : BaseActivity() {

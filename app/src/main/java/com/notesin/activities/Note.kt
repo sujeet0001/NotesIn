@@ -1,16 +1,16 @@
-package com.mynotes.activities
+package com.notesin.activities
 
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
-import com.mynotes.R
-import com.mynotes.dialogs.MyAlert
-import com.mynotes.dialogs.ProgressCircle
-import com.mynotes.models.NoteI
-import com.mynotes.utils.BaseActivity
-import com.mynotes.utils.Constants
-import com.mynotes.utils.NotesDB
+import com.notesin.R
+import com.notesin.dialogs.MyAlert
+import com.notesin.dialogs.ProgressCircle
+import com.notesin.models.NoteI
+import com.notesin.utils.BaseActivity
+import com.notesin.utils.Constants
+import com.notesin.utils.NotesDB
 import kotlinx.android.synthetic.main.note.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">Notes In</string>
     <string name="enter_secret_code">Enter your secret code</string>
     <string name="dot">⬤</string>
     <string name="enter_new_secret_code">Enter your new secret code</string>/*

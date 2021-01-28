@@ -1,7 +1,6 @@
-package com.mynotes.utils
+package com.notesin.utils
 
 import android.content.res.Configuration
-import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -11,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
-import com.mynotes.R
+import com.notesin.R
 
 open class BaseActivity : AppCompatActivity() {
 

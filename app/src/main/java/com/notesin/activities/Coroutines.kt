@@ -1,10 +1,10 @@
-package com.mynotes.activities
+package com.notesin.activities
 
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.mynotes.R
+import com.notesin.R
 import kotlinx.coroutines.*
 import kotlin.coroutines.cancellation.CancellationException
 import kotlin.system.measureTimeMillis

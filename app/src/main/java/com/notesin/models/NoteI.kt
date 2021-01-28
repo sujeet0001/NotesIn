@@ -1,4 +1,4 @@
-package com.mynotes.models
+package com.notesin.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

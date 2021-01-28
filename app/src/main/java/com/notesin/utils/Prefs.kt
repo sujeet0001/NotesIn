@@ -1,11 +1,11 @@
-package com.mynotes.utils
+package com.notesin.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.mynotes.utils.Constants.Companion.PREF_DARK_MODE
-import com.mynotes.utils.Constants.Companion.PREF_ENABLE_SECRET_CODE
-import com.mynotes.utils.Constants.Companion.PREF_SECRET_CODE
-import com.mynotes.utils.Constants.Companion.PREF_SYS_THEME_CHANGES_APP_THEME
+import com.notesin.utils.Constants.Companion.PREF_DARK_MODE
+import com.notesin.utils.Constants.Companion.PREF_ENABLE_SECRET_CODE
+import com.notesin.utils.Constants.Companion.PREF_SECRET_CODE
+import com.notesin.utils.Constants.Companion.PREF_SYS_THEME_CHANGES_APP_THEME
 
 class Prefs {
 

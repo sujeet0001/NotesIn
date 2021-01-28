@@ -1,14 +1,14 @@
-package com.mynotes.activities
+package com.notesin.activities
 
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.text.Editable
-import com.mynotes.R
-import com.mynotes.dialogs.MyAlert
-import com.mynotes.utils.BaseActivity
-import com.mynotes.utils.Constants
-import com.mynotes.utils.Prefs
+import com.notesin.R
+import com.notesin.dialogs.MyAlert
+import com.notesin.utils.BaseActivity
+import com.notesin.utils.Constants
+import com.notesin.utils.Prefs
 import kotlinx.android.synthetic.main.secret_code.*
 
 class SecretCode : BaseActivity() {

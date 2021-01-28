@@ -1,4 +1,4 @@
-package com.mynotes.activities
+package com.notesin.activities
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -7,11 +7,11 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
-import com.mynotes.R
-import com.mynotes.dialogs.MyAlert
-import com.mynotes.utils.BaseActivity
-import com.mynotes.utils.Constants
-import com.mynotes.utils.Prefs
+import com.notesin.R
+import com.notesin.dialogs.MyAlert
+import com.notesin.utils.BaseActivity
+import com.notesin.utils.Constants
+import com.notesin.utils.Prefs
 import kotlinx.android.synthetic.main.change_secret_code.*
 import kotlinx.android.synthetic.main.edittext_backspace.view.*
 

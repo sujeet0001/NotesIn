@@ -1,8 +1,8 @@
-package com.mynotes.utils
+package com.notesin.utils
 
 import android.content.Context
 import android.content.res.Configuration
-import com.mynotes.R
+import com.notesin.R
 
 class DisplayUtils {
 
