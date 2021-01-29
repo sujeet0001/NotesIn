@@ -21,7 +21,8 @@
         <item name="d_white_10">@color/d_white_10</item>
         <item name="d_x_green">@color/l_green</item>
         <item name="d_x_red">@color/l_red</item>
-
+        <item name="d_blue">@color/d_blue</item>
+        <item name="d_x_blue">@color/l_blue</item>
     </style>
 
     <!--Light mode theme-->
@@ -45,6 +46,8 @@
         <item name="d_white_10">@color/l_white_10</item>
         <item name="d_x_green">@color/d_green</item>
         <item name="d_x_red">@color/d_red</item>
+        <item name="d_blue">@color/l_blue</item>
+        <item name="d_x_blue">@color/d_blue</item>
     </style>
 
 </resources>

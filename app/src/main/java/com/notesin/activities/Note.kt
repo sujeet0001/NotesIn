@@ -1,12 +1,12 @@
 package com.notesin.activities
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import com.notesin.R
 import com.notesin.dialogs.MyAlert
-import com.notesin.dialogs.ProgressCircle
 import com.notesin.models.NoteI
 import com.notesin.utils.BaseActivity
 import com.notesin.utils.Constants
@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 
 class Note : BaseActivity(){
 
-    var isFromHome: Boolean = false
+    var isAddNote: Boolean = false
     private var scope: CoroutineScope? = null
     private val addNote = 0
     private val updateNote = 1
@@ -40,12 +40,11 @@ class Note : BaseActivity(){
     }
 
     private fun setViews(){
-        isFromHome = intent.getBooleanExtra(Constants.FROM_HOME, false)
-        if(isFromHome){
+        isAddNote = intent.getBooleanExtra(Constants.FROM_ADD_NOTE, false)
+        if(isAddNote){
             no_title.requestFocus()
         } else {
             no_delete.visibility = View.VISIBLE
-            no_save.text = Constants.UPDATE
             noteI = intent.getSerializableExtra("Note") as NoteI
             no_title.setText(noteI?.title)
             no_content.setText(noteI?.content)
@@ -54,15 +53,14 @@ class Note : BaseActivity(){
 
     private fun setClickListeners(){
         no_back.setOnClickListener { onBackPressed() }
-        no_save.setOnClickListener {
+        no_share.setOnClickListener {
             if(!isFieldsEmpty()){
-                if(isFromHome){
-                    actionOnNote(addNote, NoteI(no_title.text.toString(), no_content.text.toString()))
-                } else {
-                    val noteI = NoteI(no_title.text.toString(), no_content.text.toString())
-                    noteI.id = this.noteI!!.id
-                    actionOnNote(updateNote, noteI)
+                val shareIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, no_title.text.toString() + "\n\n" + no_content.text.toString())
+                    type = "text/plain"
                 }
+                startActivity(Intent.createChooser(shareIntent, null))
             }
         }
         no_delete.setOnClickListener {
@@ -81,24 +79,22 @@ class Note : BaseActivity(){
     }
 
     fun actionOnNote(action: Int, noteI: NoteI){
-        val progressCircle = ProgressCircle(this)
-        progressCircle.show()
-        scope = CoroutineScope(Dispatchers.Main)
+        scope = CoroutineScope(Dispatchers.IO)
         scope?.launch {
             val db = NotesDB.get(applicationContext)?.notesDao()
             when (action){
                 addNote -> {
                     noteI.let { db?.addNote(it) }
+                    storeUniqueId()
                 }
                 updateNote -> {
                     noteI.let { db?.updateNote(noteI) }
                 }
                 deleteNote -> {
                     noteI.let { db?.deleteNote(it.id) }
+                    finish()
                 }
             }
-            progressCircle.dismiss()
-            finish()
         }
     }
 
@@ -122,6 +118,20 @@ class Note : BaseActivity(){
             returnVal = true
         }
         return returnVal
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if(no_title.text.isNotEmpty() && no_content.text.isNotEmpty()){
+            if(isAddNote){
+                isAddNote = false
+                this.noteI = NoteI(getUniqueId(), no_title.text.toString(), no_content.text.toString())
+                actionOnNote(addNote, this.noteI!!)
+            } else {
+                val noteI = NoteI(this.noteI!!.id, no_title.text.toString(), no_content.text.toString())
+                actionOnNote(updateNote, noteI)
+            }
+        }
     }
 
 }

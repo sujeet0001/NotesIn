@@ -14,6 +14,7 @@
     <color name="d_green">#5CA08E</color>
     <color name="d_red">#EE7674</color>
     <color name="d_white_10">#1AFFFFFF</color>
+    <color name="d_blue">#90BAAD</color>
 
     <!--Light mode colors-->
     <color name="l_black_70">#B3000000</color>
@@ -23,5 +24,6 @@
     <color name="l_green">#3D755A</color>
     <color name="l_red">#D1495B</color>
     <color name="l_white_10">#1A000000</color>
+    <color name="l_blue">#0C7489</color>
 
 </resources>

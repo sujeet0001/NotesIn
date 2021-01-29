@@ -11,48 +11,109 @@
     android:splitMotionEvents="false"
     tools:context=".activities.Home">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ho_lay"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/d20"
-        android:paddingTop="@dimen/d10"
-        android:paddingEnd="@dimen/d10"
-        android:paddingBottom="@dimen/d10"
-        android:background="@drawable/rc_white70"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/bold"
-            android:text="@string/my_notes"
-            android:textColor="?attr/d_black"
-            android:textSize="@dimen/t25" />
+            android:id="@+id/ho_header"
+            android:orientation="horizontal"
+            android:background="@drawable/rc_white70"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/d20"
+            android:paddingTop="@dimen/d10"
+            android:paddingEnd="@dimen/d10"
+            android:paddingBottom="@dimen/d10">
 
-        <ImageButton
-            android:id="@+id/ho_add"
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/bold"
+                android:text="@string/my_notes"
+                android:textColor="?attr/d_black"
+                android:textSize="@dimen/t25" />
+
+            <ImageButton
+                android:id="@+id/ho_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d10"
+                android:layout_marginEnd="@dimen/d5"
+                android:padding="@dimen/d10"
+                android:background="@drawable/r_black"
+                app:srcCompat="@drawable/search" />
+
+            <ImageButton
+                android:id="@+id/ho_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/d10"
+                android:background="@color/trans"
+                android:contentDescription="@string/settings"
+                app:srcCompat="@drawable/settings" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/d10"
-            android:layout_marginEnd="@dimen/d5"
-            android:padding="@dimen/d10"
-            android:background="@drawable/r_black"
-            app:srcCompat="@drawable/add" />
+            android:gravity="center_vertical"
+            android:id="@+id/ho_search_lay"
+            android:background="@drawable/rcs_white25"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/d20"
+            android:paddingTop="@dimen/d10"
+            android:paddingEnd="@dimen/d10"
+            android:paddingBottom="@dimen/d10">
 
-        <ImageButton
-            android:id="@+id/ho_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/d10"
-            android:background="@color/trans"
-            android:contentDescription="@string/settings"
-            app:srcCompat="@drawable/settings" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ho_cancel_search"
+                android:paddingTop="@dimen/d10"
+                android:paddingBottom="@dimen/d10"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/d10"
+                android:layout_marginEnd="@dimen/d10"
+                android:background="@color/trans"
+                android:tint="?attr/d_white"
+                android:contentDescription="@string/settings"
+                app:srcCompat="@drawable/back" />
 
-    </LinearLayout>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/ho_search_bar"
+                android:fontFamily="@font/regular"
+                android:hint="@string/type_note_title"
+                android:textColorHint="?attr/d_white_25"
+                android:textColor="?attr/d_white"
+                android:textSize="@dimen/t20"
+                android:inputType="text"
+                android:background="@color/trans"/>
+
+            <ImageButton
+                android:id="@+id/ho_clear_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/d10"
+                android:layout_marginEnd="@dimen/d5"
+                android:padding="@dimen/d10"
+                android:tint="?attr/d_white"
+                android:background="@drawable/r_white25"
+                app:srcCompat="@drawable/close" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
@@ -74,5 +135,17 @@
         android:textColor="?attr/d_grey"
         android:visibility="gone"
         android:layout_centerInParent="true" />
+
+    <ImageButton
+        android:id="@+id/ho_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_r_white70"
+        android:padding="@dimen/d15"
+        android:layout_marginEnd="@dimen/d15"
+        android:layout_marginBottom="@dimen/d30"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/add" />
 
 </RelativeLayout>

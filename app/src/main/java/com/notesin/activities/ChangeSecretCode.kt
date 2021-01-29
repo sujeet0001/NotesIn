@@ -90,13 +90,9 @@ class ChangeSecretCode : BaseActivity() {
                 val msg: String
                 if (fromChangeCode) {
                     cp_old.visibility = View.GONE
-                    cp_old.startAnimation(
-                        AnimationUtils.loadAnimation(applicationContext, R.anim.out_top)
-                    )
+                    animateView(cp_old, R.anim.out_top)
                     cp_newpasscode_lay.visibility = View.VISIBLE
-                    cp_newpasscode_lay.startAnimation(
-                        AnimationUtils.loadAnimation(applicationContext, R.anim.in_bottom)
-                    )
+                    animateView(cp_newpasscode_lay, R.anim.in_bottom)
                     cp_new.eb_et.hint = resources.getText(R.string.enter_new_secret_code)
                     cp_newagain.eb_et.hint = resources.getText(R.string.reenter_new_secret_code)
                     highlightText(cp_new, cp_newagain, cp_new.eb_et)

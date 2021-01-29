@@ -12,16 +12,12 @@ class Constants {
         const val ENABLE_SECRET_CODE_SUB = "Asks for secret code every time you open the app."
         const val DISABLE_SECRET_CODE_SUB = "Never asks for secret code on opening the app."
         const val SAME_AS_EXISTING_CODE = "The code you entered is same as your existing secret code, please set a different one."
-        const val UPDATE = "Update"
-        const val TITLE_EMPTY = "Note title can't be empty"
-        const val CONTENT_EMPTY = "Note content can't be empty"
-        const val TITLE_CONTENT_EMPTY = "Note title and its content can't be empty"
-        const val NOTE_ADDED = "Your note has been successfully added"
-        const val NOTE_DELETED = "Your note has been successfully deleted"
-        const val NOTE_UPDATED = "Your note has been successfully updated"
+        const val TITLE_EMPTY = "Note title shouldn't be empty"
+        const val CONTENT_EMPTY = "Note content shouldn't be empty"
+        const val TITLE_CONTENT_EMPTY = "Note title and its content shouldn't be empty"
 
         // Intent extras
-        const val FROM_HOME = "0"
+        const val FROM_ADD_NOTE = "0"
         const val FROM_CHANGE_SECRET_CODE = "1"
 
         // Dialog types
@@ -47,6 +43,7 @@ class Constants {
         const val PREF_SYS_THEME_CHANGES_APP_THEME = "3"
         const val PREF_ENABLE_SECRET_CODE = "4"
         const val PREF_SECRET_CODE_SET = "5"
+        const val PREF_UNIQUE_ID = "6"
 
     }
 }

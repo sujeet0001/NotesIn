@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -94,5 +95,17 @@ open class BaseActivity : AppCompatActivity() {
             currentTheme = DisplayUtils.getTheme(applicationContext)
             activity.recreate()
         }
+    }
+
+    fun getUniqueId(): Int {
+        return Prefs.get(applicationContext).getInt(Constants.PREF_UNIQUE_ID) + 1
+    }
+
+    fun storeUniqueId() {
+        Prefs.get(applicationContext).setInt(Constants.PREF_UNIQUE_ID, getUniqueId())
+    }
+
+    fun animateView(view: View, anim: Int){
+        view.startAnimation(AnimationUtils.loadAnimation(applicationContext, anim))
     }
 }
