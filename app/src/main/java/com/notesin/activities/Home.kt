@@ -19,10 +19,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.collections.ArrayList
 
 class Home : BaseActivity() {
 
     private var notes = ArrayList<NoteI>()
+    private var filteredNotes: ArrayList<NoteI>? = null
     private var scope: CoroutineScope? = null
     private var progressCircle: ProgressCircle? = null
     private lateinit var notesAdapter: NotesA
@@ -36,7 +39,8 @@ class Home : BaseActivity() {
         super.onCreate(savedInstanceState)
         setViewConfigs(resources.configuration, R.layout.home)
         setListeners()
-        setListAdapter()
+        setLayoutManager()
+        setListAdapter(notes)
         populateList()
     }
 
@@ -50,6 +54,10 @@ class Home : BaseActivity() {
             animateView(ho_search_lay, R.anim.in_bottom)
         }
         ho_cancel_search.setOnClickListener {
+            hideKeyboard()
+            if(ho_search_bar.text.isNotEmpty()){
+                ho_search_bar.text.clear()
+            }
             ho_search_lay.visibility = View.GONE
             animateView(ho_search_lay, R.anim.out_bottom)
             ho_header.visibility = View.VISIBLE
@@ -64,15 +72,32 @@ class Home : BaseActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                
+                if(s?.trim()?.isNotEmpty()!!) {
+                    if(filteredNotes == null){
+                        filteredNotes = ArrayList()
+                    }
+                    filteredNotes!!.clear()
+                    for (it in notes) {
+                        if(it.title.toLowerCase(Locale.ROOT).contains(s.trim().toString().toLowerCase(
+                                Locale.ROOT))) {
+                            filteredNotes!!.add(it)
+                        }
+                    }
+                    setListAdapter(filteredNotes!!)
+                } else {
+                    setListAdapter(notes)
+                }
             }
         })
     }
 
-    private fun setListAdapter(){
+    private fun setLayoutManager(){
         ho_list.setHasFixedSize(true)
         ho_list.layoutManager = (LinearLayoutManager(applicationContext))
-        notesAdapter = NotesA(this, notes)
+    }
+
+    private fun setListAdapter(list: ArrayList<NoteI>){
+        notesAdapter = NotesA(this, list)
         ho_list.adapter = notesAdapter
     }
 

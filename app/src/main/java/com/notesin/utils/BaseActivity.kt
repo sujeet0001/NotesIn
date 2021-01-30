@@ -1,10 +1,12 @@
 package com.notesin.utils
 
+import android.content.Context
 import android.content.res.Configuration
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -107,5 +109,14 @@ open class BaseActivity : AppCompatActivity() {
 
     fun animateView(view: View, anim: Int){
         view.startAnimation(AnimationUtils.loadAnimation(applicationContext, anim))
+    }
+
+    fun hideKeyboard(){
+        val vw = this.currentFocus
+        if (vw != null) {
+            val imm: InputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(vw.windowToken, 0)
+        }
     }
 }
