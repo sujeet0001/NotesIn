@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.notesin.R
 import com.notesin.adapters.NotesA
 import com.notesin.dialogs.ProgressCircle
@@ -48,10 +49,14 @@ class Home : BaseActivity() {
         ho_settings.setOnClickListener{startActivity(Intent(applicationContext, Settings::class.java))}
         ho_add.setOnClickListener{ goToNote(null) }
         ho_search.setOnClickListener {
-            ho_header.visibility = View.GONE
-            animateView(ho_header, R.anim.out_top)
-            ho_search_lay.visibility = View.VISIBLE
-            animateView(ho_search_lay, R.anim.in_bottom)
+            if(notes.isNotEmpty()){
+                ho_header.visibility = View.GONE
+                animateView(ho_header, R.anim.out_top)
+                ho_search_lay.visibility = View.VISIBLE
+                animateView(ho_search_lay, R.anim.in_bottom)
+            } else {
+                showSnack(Constants.NO_NOTES_SEARCH, Snackbar.LENGTH_LONG)
+            }
         }
         ho_cancel_search.setOnClickListener {
             hideKeyboard()
