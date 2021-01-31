@@ -52,10 +52,12 @@ class Home : BaseActivity() {
             if(notes.isNotEmpty()){
                 ho_header.visibility = View.GONE
                 animateView(ho_header, R.anim.out_top)
+                ho_add.visibility = View.GONE
+                animateView(ho_add, R.anim.out_bottom)
                 ho_search_lay.visibility = View.VISIBLE
                 animateView(ho_search_lay, R.anim.in_bottom)
             } else {
-                showSnack(Constants.NO_NOTES_SEARCH, Snackbar.LENGTH_LONG)
+                showSnack(Constants.NO_NOTES_TO_SEARCH, Snackbar.LENGTH_LONG)
             }
         }
         ho_cancel_search.setOnClickListener {
@@ -67,6 +69,8 @@ class Home : BaseActivity() {
             animateView(ho_search_lay, R.anim.out_bottom)
             ho_header.visibility = View.VISIBLE
             animateView(ho_header, R.anim.in_top)
+            ho_add.visibility = View.VISIBLE
+            animateView(ho_add, R.anim.in_bottom)
         }
         ho_clear_search.setOnClickListener {
             if(ho_search_bar.text.isNotEmpty()){
@@ -89,8 +93,10 @@ class Home : BaseActivity() {
                         }
                     }
                     setListAdapter(filteredNotes!!)
+                    checkForNotesAvailability(filteredNotes!!, true)
                 } else {
                     setListAdapter(notes)
+                    checkForNotesAvailability(notes, false)
                 }
             }
         })
@@ -106,9 +112,14 @@ class Home : BaseActivity() {
         ho_list.adapter = notesAdapter
     }
 
-    private fun checkForNotesAvailability(){
-        if(notes.isEmpty()){
+    private fun checkForNotesAvailability(list: ArrayList<NoteI>, isFilteredList: Boolean){
+        if(list.isEmpty()){
             ho_no_notes.visibility = View.VISIBLE
+            if(isFilteredList){
+                ho_no_notes.text = Constants.NO_SEARCH_RESULTS
+            } else {
+                ho_no_notes.text = Constants.NO_NOTES
+            }
         } else {
             ho_no_notes.visibility = View.GONE
         }
@@ -117,6 +128,14 @@ class Home : BaseActivity() {
     override fun onRestart() {
         super.onRestart()
         recreateActivityOnThemeChange(this)
+        if(ho_search_lay.visibility == View.VISIBLE){
+            ho_search_lay.visibility = View.GONE
+            ho_header.visibility = View.VISIBLE
+            ho_add.visibility = View.VISIBLE
+            if(ho_search_bar.text.isNotEmpty()){
+                ho_search_bar.text.clear()
+            }
+        }
         populateList()
     }
 
@@ -145,7 +164,7 @@ class Home : BaseActivity() {
                 progressCircle?.dismiss()
             }
             notesAdapter.notifyDataSetChanged()
-            checkForNotesAvailability()
+            checkForNotesAvailability(notes, false)
         }
     }
 

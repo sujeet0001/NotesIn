@@ -15,7 +15,9 @@ class Constants {
         const val TITLE_EMPTY = "Note title shouldn't be empty"
         const val CONTENT_EMPTY = "Note content shouldn't be empty"
         const val TITLE_CONTENT_EMPTY = "Note title and its content shouldn't be empty"
-        const val NO_NOTES_SEARCH = "There are no notes to search for"
+        const val NO_NOTES_TO_SEARCH = "There are no notes to search"
+        const val NO_NOTES = "No notes found!\n\nTap (+) icon to add a note"
+        const val NO_SEARCH_RESULTS = "No results found!"
 
         // Intent extras
         const val FROM_ADD_NOTE = "0"
