@@ -160,11 +160,11 @@ class Home : BaseActivity() {
         scope?.launch {
             notes.addAll(NotesDB.get(applicationContext)?.notesDao()?.getAllNotes() as ArrayList)
             notes.reverse()
+            notesAdapter.notifyDataSetChanged()
+            checkForNotesAvailability(notes, false)
             if(progressCircle != null && progressCircle?.isShowing == true){
                 progressCircle?.dismiss()
             }
-            notesAdapter.notifyDataSetChanged()
-            checkForNotesAvailability(notes, false)
         }
     }
 
