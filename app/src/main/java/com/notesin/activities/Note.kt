@@ -17,7 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-class Note : BaseActivity(){
+class Note : BaseActivity() {
 
     var isAddNote: Boolean = false
     private var scope: CoroutineScope? = null
@@ -25,7 +25,8 @@ class Note : BaseActivity(){
     private val updateNote = 1
     private val deleteNote = 2
     var noteI: NoteI? = null
-    private var deleteAlert: MyAlert? = null
+    private var myAlert: MyAlert? = null
+    private var field = ""
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
@@ -39,9 +40,9 @@ class Note : BaseActivity(){
         setClickListeners()
     }
 
-    private fun setViews(){
+    private fun setViews() {
         isAddNote = intent.getBooleanExtra(Constants.FROM_ADD_NOTE, false)
-        if(isAddNote){
+        if (isAddNote) {
             no_title.requestFocus()
         } else {
             no_delete.visibility = View.VISIBLE
@@ -51,25 +52,30 @@ class Note : BaseActivity(){
         }
     }
 
-    private fun setClickListeners(){
+    private fun setClickListeners() {
         no_back.setOnClickListener { onBackPressed() }
         no_share.setOnClickListener {
-            if(!isFieldsEmpty()){
+            field = fieldsEmptyType()
+            if (field == Constants.NOT_EMPTY) {
                 val shareIntent: Intent = Intent().apply {
                     action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, no_title.text.toString() + "\n\n" + no_content.text.toString())
+                    putExtra(Intent.EXTRA_TEXT,
+                        no_title.text.toString() + "\n\n" + no_content.text.toString())
                     type = "text/plain"
                 }
                 startActivity(Intent.createChooser(shareIntent, null))
+            } else {
+                showSnack(field + Constants.SHOULD_NOT_BE_EMPTY, Snackbar.LENGTH_LONG)
             }
         }
         no_delete.setOnClickListener {
-            if(!isFieldsEmpty()){
-                if(deleteAlert == null){
-                    deleteAlert = MyAlert(this, Constants.TYPE_DELETE_NOTE, Constants.MSG_DELETE_NOTE)
-                }
-                deleteAlert!!.show()
+            if (myAlert == null) {
+                myAlert = MyAlert(this, Constants.TYPE_DELETE_NOTE, Constants.MSG_DELETE_NOTE)
+            } else {
+                myAlert!!.setType(Constants.TYPE_DELETE_NOTE)
+                myAlert!!.setMessage(Constants.MSG_DELETE_NOTE)
             }
+            myAlert!!.show()
         }
     }
 
@@ -78,11 +84,11 @@ class Note : BaseActivity(){
         recreateActivityOnThemeChange(this)
     }
 
-    fun actionOnNote(action: Int, noteI: NoteI){
+    fun actionOnNote(action: Int, noteI: NoteI) {
         scope = CoroutineScope(Dispatchers.IO)
         scope?.launch {
             val db = NotesDB.get(applicationContext)?.notesDao()
-            when (action){
+            when (action) {
                 addNote -> {
                     noteI.let { db?.addNote(it) }
                     storeUniqueId()
@@ -100,37 +106,56 @@ class Note : BaseActivity(){
 
     override fun onDestroy() {
         super.onDestroy()
-        if(scope != null){
+        if (scope != null) {
             scope?.cancel()
         }
     }
 
-    private fun isFieldsEmpty(): Boolean {
-        var returnVal = false
-        if(no_title.text.isEmpty() && no_content.text.isEmpty()){
-            showSnack(Constants.TITLE_CONTENT_EMPTY, Snackbar.LENGTH_LONG)
-            returnVal = true
+    private fun fieldsEmptyType(): String {
+        if (no_title.text.isEmpty() && no_content.text.isEmpty()) {
+            return Constants.NOTE_TITLE_CONTENT
         } else if (no_title.text.isEmpty()) {
-            showSnack(Constants.TITLE_EMPTY, Snackbar.LENGTH_LONG)
-            returnVal = true
+            return Constants.NOTE_TITLE
         } else if (no_content.text.isEmpty()) {
-            showSnack(Constants.CONTENT_EMPTY, Snackbar.LENGTH_LONG)
-            returnVal = true
+            return Constants.NOTE_CONTENT
         }
-        return returnVal
+        return Constants.NOT_EMPTY
     }
 
     override fun onPause() {
         super.onPause()
-        if(no_title.text.isNotEmpty() && no_content.text.isNotEmpty()){
-            if(isAddNote){
+        if (no_title.text.isNotEmpty() && no_content.text.isNotEmpty()) {
+            if (isAddNote) {
                 isAddNote = false
-                this.noteI = NoteI(getUniqueId(), no_title.text.toString(), no_content.text.toString())
+                this.noteI =
+                    NoteI(getUniqueId(), no_title.text.toString(), no_content.text.toString())
                 actionOnNote(addNote, this.noteI!!)
             } else {
-                val noteI = NoteI(this.noteI!!.id, no_title.text.toString(), no_content.text.toString())
+                val noteI =
+                    NoteI(this.noteI!!.id, no_title.text.toString(), no_content.text.toString())
                 actionOnNote(updateNote, noteI)
             }
+        }
+    }
+
+    fun goBack(){
+        super.onBackPressed()
+    }
+
+    override fun onBackPressed() {
+        field = fieldsEmptyType()
+        if (field != Constants.NOT_EMPTY) {
+            if (myAlert == null) {
+                myAlert = MyAlert(this, Constants.TYPE_DISCARD_CHANGES,
+                    Constants.MSG_DISCARD_CHANGES + field)
+            } else {
+                myAlert!!.setType(Constants.TYPE_DISCARD_CHANGES)
+                myAlert!!.setMessage(Constants.MSG_DISCARD_CHANGES + field)
+                myAlert!!.setActionButtonNames(Constants.DISCARD, Constants.CANCEL)
+            }
+            myAlert!!.show()
+        } else {
+            goBack()
         }
     }
 

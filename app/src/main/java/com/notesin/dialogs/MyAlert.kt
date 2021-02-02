@@ -12,9 +12,17 @@ import com.notesin.utils.MyDialog
 import kotlinx.android.synthetic.main.first_time_alert.*
 import kotlinx.android.synthetic.main.my_alert.*
 
-class MyAlert(context: Context, private var type: Int, private var msg: String) : MyDialog(context) {
+class MyAlert(context: Context) : MyDialog(context) {
 
-    private val ctx: Context = context
+    private var ctx = context
+    private var type = 0
+    private var msg = ""
+
+    constructor(context: Context, type: Int, msg: String): this(context){
+        this.ctx = context
+        this.type = type
+        this.msg = msg
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +42,28 @@ class MyAlert(context: Context, private var type: Int, private var msg: String) 
             setContentView(R.layout.my_alert)
             ma_msg.text = msg
             setClickListeners()
+
+            when (type){
+                Constants.TYPE_DISCARD_CHANGES -> {
+                    ma_yes.text = Constants.DISCARD
+                    ma_no.text = Constants.CANCEL
+                }
+            }
+
         }
+    }
+
+    fun setMessage(msg: String){
+        ma_msg.text = msg
+    }
+
+    fun setType(type: Int){
+        this.type = type
+    }
+
+    fun setActionButtonNames(positive: String, negative: String){
+        ma_yes.text = positive
+        ma_no.text = negative
     }
 
     private fun setClickListeners(){
@@ -43,6 +72,10 @@ class MyAlert(context: Context, private var type: Int, private var msg: String) 
                 Constants.TYPE_DELETE_NOTE -> {
                     val note = ctx as Note
                     note.noteI?.let { it1 -> note.actionOnNote(2, it1) }
+                }
+                Constants.TYPE_DISCARD_CHANGES -> {
+                    val note = ctx as Note
+                    note.goBack()
                 }
                 else -> dismiss()
             }
