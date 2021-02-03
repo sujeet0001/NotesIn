@@ -27,14 +27,14 @@ open class MyDialog(context: Context) : Dialog(context) {
         window?.attributes?.windowAnimations = anim
     }
 
-    fun dismissDialog(onBackPress: Boolean, onOutsideTouch: Boolean){
+    fun dialogDismissOn(onBackPress: Boolean, onOutsideTouch: Boolean){
         setCancelable(false)
         setCanceledOnTouchOutside(false)
     }
 
     fun setUpDialog(background: Int, closeOnBackPress: Boolean, closeOnOutsideTouch: Boolean){
         setBackground(background)
-        dismissDialog(closeOnBackPress, closeOnOutsideTouch)
+        dialogDismissOn(closeOnBackPress, closeOnOutsideTouch)
     }
 
 }
