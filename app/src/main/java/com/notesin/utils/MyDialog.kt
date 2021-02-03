@@ -28,8 +28,8 @@ open class MyDialog(context: Context) : Dialog(context) {
     }
 
     fun dialogDismissOn(onBackPress: Boolean, onOutsideTouch: Boolean){
-        setCancelable(false)
-        setCanceledOnTouchOutside(false)
+        setCancelable(onBackPress)
+        setCanceledOnTouchOutside(onOutsideTouch)
     }
 
     fun setUpDialog(background: Int, closeOnBackPress: Boolean, closeOnOutsideTouch: Boolean){
