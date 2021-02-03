@@ -55,7 +55,7 @@ class Note : BaseActivity() {
     private fun setClickListeners() {
         no_back.setOnClickListener { onBackPressed() }
         no_share.setOnClickListener {
-            field = fieldsEmptyType()
+            field = emptyFields()
             if (field == Constants.NOT_EMPTY) {
                 val shareIntent: Intent = Intent().apply {
                     action = Intent.ACTION_SEND
@@ -111,7 +111,7 @@ class Note : BaseActivity() {
         }
     }
 
-    private fun fieldsEmptyType(): String {
+    private fun emptyFields(): String {
         if (no_title.text.isEmpty() && no_content.text.isEmpty()) {
             return Constants.NOTE_TITLE_CONTENT
         } else if (no_title.text.isEmpty()) {
@@ -143,7 +143,7 @@ class Note : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        field = fieldsEmptyType()
+        field = emptyFields()
         if (field != Constants.NOT_EMPTY) {
             if (myAlert == null) {
                 myAlert = MyAlert(this, Constants.TYPE_DISCARD_CHANGES,
