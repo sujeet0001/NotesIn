@@ -107,7 +107,8 @@ open class BaseActivity : AppCompatActivity() {
         Prefs.get(applicationContext).setInt(Constants.PREF_UNIQUE_ID, getUniqueId())
     }
 
-    fun animateView(view: View, anim: Int){
+    fun setVisibilityWithAnimation(view: View, visibility: Int, anim: Int){
+        view.visibility = visibility
         view.startAnimation(AnimationUtils.loadAnimation(applicationContext, anim))
     }
 

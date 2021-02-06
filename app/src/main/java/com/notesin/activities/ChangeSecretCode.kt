@@ -4,7 +4,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.notesin.R
@@ -89,10 +88,8 @@ class ChangeSecretCode : BaseActivity() {
             if (code == Prefs.get(applicationContext).getSecretCode()) {
                 val msg: String
                 if (fromChangeCode) {
-                    cp_old.visibility = View.GONE
-                    animateView(cp_old, R.anim.out_top)
-                    cp_newpasscode_lay.visibility = View.VISIBLE
-                    animateView(cp_newpasscode_lay, R.anim.in_bottom)
+                    setVisibilityWithAnimation(cp_old, View.GONE, R.anim.out_top)
+                    setVisibilityWithAnimation(cp_newpasscode_lay, View.VISIBLE, R.anim.in_bottom)
                     cp_new.eb_et.hint = resources.getText(R.string.enter_new_secret_code)
                     cp_newagain.eb_et.hint = resources.getText(R.string.reenter_new_secret_code)
                     highlightText(cp_new, cp_newagain, cp_new.eb_et)

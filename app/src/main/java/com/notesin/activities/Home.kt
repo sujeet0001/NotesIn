@@ -50,12 +50,9 @@ class Home : BaseActivity() {
         ho_add.setOnClickListener{ goToNote(null) }
         ho_search.setOnClickListener {
             if(notes.isNotEmpty()){
-                ho_header.visibility = View.GONE
-                animateView(ho_header, R.anim.out_top)
-                ho_add.visibility = View.GONE
-                animateView(ho_add, R.anim.out_bottom)
-                ho_search_lay.visibility = View.VISIBLE
-                animateView(ho_search_lay, R.anim.in_bottom)
+                setVisibilityWithAnimation(ho_header, View.GONE, R.anim.out_top)
+                setVisibilityWithAnimation(ho_add, View.GONE, R.anim.out_bottom)
+                setVisibilityWithAnimation(ho_search_lay, View.VISIBLE, R.anim.in_bottom)
             } else {
                 showSnack(Constants.NO_NOTES_TO_SEARCH, Snackbar.LENGTH_LONG)
             }
@@ -65,12 +62,9 @@ class Home : BaseActivity() {
             if(ho_search_bar.text.isNotEmpty()){
                 ho_search_bar.text.clear()
             }
-            ho_search_lay.visibility = View.GONE
-            animateView(ho_search_lay, R.anim.out_bottom)
-            ho_header.visibility = View.VISIBLE
-            animateView(ho_header, R.anim.in_top)
-            ho_add.visibility = View.VISIBLE
-            animateView(ho_add, R.anim.in_bottom)
+            setVisibilityWithAnimation(ho_search_lay, View.GONE, R.anim.out_bottom)
+            setVisibilityWithAnimation(ho_header, View.VISIBLE, R.anim.in_top)
+            setVisibilityWithAnimation(ho_add, View.VISIBLE, R.anim.in_bottom)
         }
         ho_clear_search.setOnClickListener {
             if(ho_search_bar.text.isNotEmpty()){
