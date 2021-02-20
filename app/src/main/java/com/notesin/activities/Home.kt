@@ -98,7 +98,7 @@ class Home : BaseActivity() {
 
     private fun setLayoutManager(){
         ho_list.setHasFixedSize(true)
-        ho_list.layoutManager = (LinearLayoutManager(applicationContext))
+        ho_list.layoutManager = LinearLayoutManager(applicationContext)
     }
 
     private fun setListAdapter(list: ArrayList<NoteI>){

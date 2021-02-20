@@ -131,9 +131,9 @@ class Note : BaseActivity() {
                     NoteI(getUniqueId(), no_title.text.toString(), no_content.text.toString())
                 actionOnNote(addNote, this.noteI!!)
             } else {
-                val noteI =
+                this.noteI =
                     NoteI(this.noteI!!.id, no_title.text.toString(), no_content.text.toString())
-                actionOnNote(updateNote, noteI)
+                actionOnNote(updateNote, this.noteI!!)
             }
         }
     }
