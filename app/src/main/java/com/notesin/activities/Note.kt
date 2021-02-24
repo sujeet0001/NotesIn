@@ -85,7 +85,9 @@ class Note : BaseActivity() {
     }
 
     fun actionOnNote(action: Int, noteI: NoteI) {
-        scope = CoroutineScope(Dispatchers.IO)
+        if(scope == null){
+            scope = CoroutineScope(Dispatchers.IO)
+        }
         scope?.launch {
             val db = NotesDB.get(applicationContext)?.notesDao()
             when (action) {
