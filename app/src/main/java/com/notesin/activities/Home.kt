@@ -54,7 +54,7 @@ class Home : BaseActivity() {
                 setVisibilityWithAnimation(ho_add, View.GONE, R.anim.out_bottom)
                 setVisibilityWithAnimation(ho_search_lay, View.VISIBLE, R.anim.in_bottom)
             } else {
-                showSnack(Constants.NO_NOTES_TO_SEARCH, Snackbar.LENGTH_LONG)
+                getSnack(Constants.NO_NOTES_TO_SEARCH, Snackbar.LENGTH_LONG, false).show()
             }
         }
         ho_cancel_search.setOnClickListener {

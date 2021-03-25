@@ -35,61 +35,48 @@ open class BaseActivity : AppCompatActivity() {
         baseContext.createConfigurationContext(configuration)
     }
 
-    fun showSnack(msg: String, time: Int) {
+    fun getSnack(msg: String, time: Int, hasButton: Boolean): Snackbar {
         val snack = Snackbar.make(window.decorView.rootView, msg, time)
+        val view = snack.view
         snack.apply {
-            setSnackView(snack.view, false)
-            show()
-        }
-    }
-
-    fun getSnackWithButton(msg: String, time: Int): Snackbar {
-        val snack = Snackbar.make(window.decorView.rootView, msg, time)
-        snack.apply {
-            setSnackView(snack.view, true)
-            setSnackButtonView(snack.view, DisplayUtils.getToastTextSize(applicationContext))
+            view.setPadding(resources.getDimension(R.dimen.d10).toInt(),
+                resources.getDimension(R.dimen.d10).toInt(),
+                if (!hasButton) {
+                    resources.getDimension(R.dimen.d10).toInt()
+                } else {
+                    resources.getDimension(R.dimen.d15).toInt()
+                },
+                resources.getDimension(R.dimen.d10).toInt())
+            view.setBackgroundResource(R.drawable.rc_grey)
+            val tv = view.findViewById(R.id.snackbar_text) as TextView
+            tv.textSize = DisplayUtils.getToastTextSize(applicationContext)
+            tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
+            if (!hasButton) {
+                tv.textAlignment = View.TEXT_ALIGNMENT_CENTER
+            }
+            tv.maxLines = 10
+            tv.setTextColor(ContextCompat.getColor(applicationContext,
+                DisplayUtils.getToastTextColor(applicationContext)))
+            (view.layoutParams as ViewGroup.MarginLayoutParams)
+                .apply {
+                    setMargins(resources.getDimension(R.dimen.d20).toInt(), 0,
+                        resources.getDimension(R.dimen.d20).toInt(),
+                        resources.getDimension(R.dimen.d70).toInt())
+                }
+            if(hasButton){
+                val btn = view.findViewById(R.id.snackbar_action) as Button
+                btn.setBackgroundResource(R.drawable.rc_green_l)
+                btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
+                btn.textSize = DisplayUtils.getToastTextSize(applicationContext)
+                btn.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
+                btn.isAllCaps = false
+                btn.setPadding(
+                    resources.getDimension(R.dimen.d20).toInt(), 0,
+                    resources.getDimension(R.dimen.d20).toInt(), 0
+                )
+            }
         }
         return snack
-    }
-
-    private fun setSnackView(view: View, isButton: Boolean) {
-        view.setPadding(resources.getDimension(R.dimen.d10).toInt(),
-            resources.getDimension(R.dimen.d10).toInt(),
-            if (!isButton) {
-                resources.getDimension(R.dimen.d10).toInt()
-            } else {
-                resources.getDimension(R.dimen.d15).toInt()
-            },
-            resources.getDimension(R.dimen.d10).toInt())
-        view.setBackgroundResource(R.drawable.rc_grey)
-        val tv = view.findViewById(R.id.snackbar_text) as TextView
-        tv.textSize = DisplayUtils.getToastTextSize(applicationContext)
-        tv.typeface = ResourcesCompat.getFont(applicationContext, R.font.regular)
-        if (!isButton) {
-            tv.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        }
-        tv.maxLines = 10
-        tv.setTextColor(ContextCompat.getColor(applicationContext,
-            DisplayUtils.getToastTextColor(applicationContext)))
-        (view.layoutParams as ViewGroup.MarginLayoutParams)
-            .apply {
-                setMargins(resources.getDimension(R.dimen.d20).toInt(), 0,
-                    resources.getDimension(R.dimen.d20).toInt(),
-                    resources.getDimension(R.dimen.d70).toInt())
-            }
-    }
-
-    private fun setSnackButtonView(view: View, textSize: Float) {
-        val btn = view.findViewById(R.id.snackbar_action) as Button
-        btn.setBackgroundResource(R.drawable.rc_green_l)
-        btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.black))
-        btn.textSize = textSize
-        btn.typeface = ResourcesCompat.getFont(applicationContext, R.font.bold)
-        btn.isAllCaps = false
-        btn.setPadding(
-            resources.getDimension(R.dimen.d20).toInt(), 0,
-            resources.getDimension(R.dimen.d20).toInt(), 0
-        )
     }
 
     fun recreateActivityOnThemeChange(activity: BaseActivity) {

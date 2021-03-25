@@ -65,7 +65,7 @@ class Note : BaseActivity() {
                 }
                 startActivity(Intent.createChooser(shareIntent, null))
             } else {
-                showSnack(field + Constants.SHOULD_NOT_BE_EMPTY, Snackbar.LENGTH_LONG)
+                getSnack(field + Constants.SHOULD_NOT_BE_EMPTY, Snackbar.LENGTH_LONG, false).show()
             }
         }
         no_delete.setOnClickListener {

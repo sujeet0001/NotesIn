@@ -105,7 +105,7 @@ class ChangeSecretCode : BaseActivity() {
                     }
                     Handler().postDelayed({ finish() }, 3500)
                 }
-                showSnack(msg, 4000)
+                getSnack(msg, 4000, false).show()
             }
         } else if (tv == cp_new.eb_et) {
             code += ch
@@ -117,7 +117,7 @@ class ChangeSecretCode : BaseActivity() {
             if (code != Prefs.get(applicationContext).getSecretCode()) {
                 showSecretCodeSaveAlert()
             } else {
-                showSnack(Constants.SAME_AS_EXISTING_CODE, 3000)
+                getSnack(Constants.SAME_AS_EXISTING_CODE, 3000, false).show()
             }
         }
     }
@@ -139,7 +139,7 @@ class ChangeSecretCode : BaseActivity() {
             }
             if (code == codeNew && code.length > 3) {
                 if (code == Prefs.get(applicationContext).getSecretCode()) {
-                    showSnack(Constants.SAME_AS_EXISTING_CODE, 3000)
+                    getSnack(Constants.SAME_AS_EXISTING_CODE, 3000, false).show()
                 } else {
                     showSecretCodeSaveAlert()
                 }
@@ -155,10 +155,10 @@ class ChangeSecretCode : BaseActivity() {
     }
 
     private fun showSecretCodeSaveAlert() {
-        snack = getSnackWithButton("Codes matched, want to save it?", 5000)
+        snack = getSnack("Codes matched, want to save it?", 5000, true)
         snack?.setAction("Yes") {
             Prefs.get(applicationContext).setSecretCode(codeNew)
-            showSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG)
+            getSnack(Constants.SECRET_CODE_CHANGED, Snackbar.LENGTH_LONG, false).show()
             Prefs.get(applicationContext).setBool(Constants.PREF_SECRET_CODE_SET, true)
             Handler().postDelayed({
                 finish()
