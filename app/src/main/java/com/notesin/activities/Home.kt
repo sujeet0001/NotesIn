@@ -148,6 +148,7 @@ class Home : BaseActivity() {
         if(progressCircle == null){
             progressCircle = ProgressCircle(this)
         }
+        progressCircle?.show()
         if(scope == null){
             scope = CoroutineScope(Dispatchers.Main)
         }

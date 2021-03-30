@@ -11,16 +11,18 @@ class Prefs {
 
     companion object {
 
-        private var prefs: Prefs? = null
+        @Volatile private var prefs: Prefs? = null
         private lateinit var sp: SharedPreferences
         private lateinit var ed: SharedPreferences.Editor
 
         fun get(context: Context): Prefs {
-            if (prefs == null) {
-                prefs = Prefs()
-                sp = context.getSharedPreferences("NotesPrefs", Context.MODE_PRIVATE)
-                ed = sp.edit()
-                ed.apply()
+            synchronized(this){
+                if (prefs == null) {
+                    prefs = Prefs()
+                    sp = context.getSharedPreferences("NotesPrefs", Context.MODE_PRIVATE)
+                    ed = sp.edit()
+                    ed.apply()
+                }
             }
             return prefs!!
         }

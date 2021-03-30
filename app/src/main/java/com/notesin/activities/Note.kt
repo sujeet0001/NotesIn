@@ -96,7 +96,7 @@ class Note : BaseActivity() {
                     storeUniqueId()
                 }
                 updateNote -> {
-                    noteI.let { db?.updateNote(noteI) }
+                    noteI.let { db?.updateNote(it) }
                 }
                 deleteNote -> {
                     noteI.let { db?.deleteNote(it.id) }

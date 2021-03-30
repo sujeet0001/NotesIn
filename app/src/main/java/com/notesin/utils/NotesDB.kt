@@ -15,7 +15,7 @@ abstract class NotesDB : RoomDatabase() {
         @Volatile private var INSTANCE: NotesDB? = null
         fun get(context: Context): NotesDB? {
             if (INSTANCE == null) {
-                synchronized(NotesDB::class) {
+                synchronized(this) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
                         NotesDB::class.java,
                         "notesDB"

@@ -6,11 +6,13 @@ class DialogUtil {
 
     companion object {
 
-        private var dialogUtil: DialogUtil? = null
+        @Volatile private var dialogUtil: DialogUtil? = null
 
         fun get(): DialogUtil {
-            if (dialogUtil == null) {
-                dialogUtil = DialogUtil()
+            synchronized(this){
+                if (dialogUtil == null) {
+                    dialogUtil = DialogUtil()
+                }
             }
             return dialogUtil!!
         }
