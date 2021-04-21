@@ -63,10 +63,12 @@ class SecretCode : BaseActivity() {
     }
 
     private fun addChar(ch: String) {
-        pc_passcode.text.append(dot)
-        code += ch
-        if(code == Prefs.get(applicationContext).getSecretCode()){
-            goToHome()
+        if(code.length < 15){
+            pc_passcode.text.append(dot)
+            code += ch
+            if(code == Prefs.get(applicationContext).getSecretCode()){
+                goToHome()
+            }
         }
     }
 

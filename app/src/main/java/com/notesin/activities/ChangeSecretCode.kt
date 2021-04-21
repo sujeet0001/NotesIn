@@ -82,36 +82,39 @@ class ChangeSecretCode : BaseActivity() {
 
     private fun addChar(ch: String) {
         dismissSnack()
-        tv?.append(dot)
-        if (tv == cp_old.eb_et) {
-            code += ch
-            if (code == Prefs.get(applicationContext).getSecretCode()) {
-                val msg: String
-                if (fromChangeCode) {
-                    setVisibilityWithAnimation(cp_old, View.GONE, R.anim.out_top)
-                    setVisibilityWithAnimation(cp_newpasscode_lay, View.VISIBLE, R.anim.in_bottom)
-                    cp_new.eb_et.hint = resources.getText(R.string.enter_new_secret_code)
-                    cp_newagain.eb_et.hint = resources.getText(R.string.reenter_new_secret_code)
-                    highlightText(cp_new, cp_newagain, cp_new.eb_et)
-                    code = ""
-                    msg = "Type in same codes in both the fields and make sure the code is of minimum 4 characters"
-                } else {
-                    msg = if (Prefs.get(applicationContext).isSecretCodeEnabled()) {
-                        Prefs.get(applicationContext).enableSecretCode(false)
-                        "From now on you won't be asked to enter secret code while opening the app"
+        if(code.length < 15 && codeNew.length < 15){
+            tv?.append(dot)
+            if (tv == cp_old.eb_et) {
+                code += ch
+                if (code == Prefs.get(applicationContext).getSecretCode()) {
+                    val msg: String
+                    if (fromChangeCode) {
+                        setVisibilityWithAnimation(cp_old, View.GONE, R.anim.out_top)
+                        setVisibilityWithAnimation(cp_newpasscode_lay, View.VISIBLE, R.anim.in_bottom)
+                        cp_new.eb_et.hint = resources.getText(R.string.enter_new_secret_code)
+                        cp_newagain.eb_et.hint = resources.getText(R.string.reenter_new_secret_code)
+                        highlightText(cp_new, cp_newagain, cp_new.eb_et)
+                        code = ""
+                        msg = "Type in same codes in both the fields and make sure the code is of minimum 4 characters"
                     } else {
-                        Prefs.get(applicationContext).enableSecretCode(true)
-                        "From now on you will be asked to enter secret code while opening the app"
+                        msg = if (Prefs.get(applicationContext).isSecretCodeEnabled()) {
+                            Prefs.get(applicationContext).enableSecretCode(false)
+                            "From now on you won't be asked to enter secret code while opening the app"
+                        } else {
+                            Prefs.get(applicationContext).enableSecretCode(true)
+                            "From now on you will be asked to enter secret code while opening the app"
+                        }
+                        Handler().postDelayed({ finish() }, 3500)
                     }
-                    Handler().postDelayed({ finish() }, 3500)
+                    getSnack(msg, 4000, false).show()
                 }
-                getSnack(msg, 4000, false).show()
+            } else if (tv == cp_new.eb_et) {
+                code += ch
+            } else {
+                codeNew += ch
             }
-        } else if (tv == cp_new.eb_et) {
-            code += ch
-        } else {
-            codeNew += ch
         }
+
 
         if (code == codeNew && code.length > 3) {
             if (code != Prefs.get(applicationContext).getSecretCode()) {
@@ -127,9 +130,7 @@ class ChangeSecretCode : BaseActivity() {
         if (tv.text.isNotEmpty()) {
             tv.text = tv.text.dropLast(1)
             when (tv) {
-                cp_old.eb_et -> {
-                    code = code.dropLast(1)
-                }
+                cp_old.eb_et,
                 cp_new.eb_et -> {
                     code = code.dropLast(1)
                 }

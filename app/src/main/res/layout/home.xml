@@ -26,8 +26,8 @@
             android:background="@drawable/rc_white70"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/d20"
-            android:paddingTop="@dimen/d10"
-            android:paddingEnd="@dimen/d10"
+            android:paddingTop="@dimen/d7_5"
+            android:paddingEnd="@dimen/d7_5"
             android:paddingBottom="@dimen/d10">
 
             <TextView
